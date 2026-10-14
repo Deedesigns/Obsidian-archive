@@ -10,6 +10,8 @@ updated: 2026-10-13        (optional)
 summary: one sentence
 ---
 Body uses a tiny Markdown subset: ## headings, paragraphs, - lists, **bold**, *italic*.
+Images: a line `![alt](images/file.jpg "optional caption")`; a following line in
+*italics* is also used as the caption. Files live in static/images/ (copied to public/).
 """
 import html, re, shutil, pathlib, datetime
 ROOT = pathlib.Path(__file__).parent
@@ -26,13 +28,31 @@ def inline(t):
     t = re.sub(r"\*(.+?)\*", r"<em>\1</em>", t)
     t = re.sub(r"\[(.+?)\]\((https?://[^)]+)\)", r'<a href="\2">\1</a>', t)
     return t
+IMG = re.compile(r'^!\[(.*?)\]\((\S+?)(?:\s+"(.*)")?\)$')
+def img_src(src, depth=1):
+    if re.match(r"(https?:)?//", src): return src
+    src = src.lstrip("/")
+    if src.startswith("static/"): src = src[7:]
+    return "../" * depth + "static/" + src
+def figure(alt, src, cap):
+    c = f"<figcaption>{inline(cap)}</figcaption>" if cap else ""
+    return f'<figure><img src="{html.escape(img_src(src), quote=True)}" alt="{html.escape(alt, quote=True)}" loading="lazy">{c}</figure>'
 def md(body):
     out, para, lst = [], [], []
+    fig = None
     def flush():
         if para: out.append("<p>" + inline(" ".join(para)) + "</p>"); para.clear()
         if lst: out.append("<ul>" + "".join(f"<li>{inline(x)}</li>" for x in lst) + "</ul>"); lst.clear()
+    def flushfig():
+        nonlocal fig
+        if fig: out.append(figure(*fig)); fig = None
     for line in body.splitlines():
         s = line.strip()
+        m = IMG.match(s)
+        if fig and not fig[2] and re.fullmatch(r"\*[^*].*\*", s):
+            fig = (fig[0], fig[1], s[1:-1]); flushfig(); continue
+        flushfig()
+        if m: flush(); fig = (m.group(1), m.group(2), m.group(3) or ""); continue
         if not s: flush()
         elif s.startswith("## "): flush(); out.append(f"<h2>{inline(s[3:])}</h2>")
         elif s.startswith("- "):
@@ -41,7 +61,7 @@ def md(body):
         else:
             if lst: flush()
             para.append(s)
-    flush(); return "\n".join(out)
+    flushfig(); flush(); return "\n".join(out)
 def parse(p):
     txt = p.read_text(encoding="utf-8")
     _, fm, body = txt.split("---", 2)

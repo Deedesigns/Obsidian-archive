@@ -40,3 +40,9 @@ background:radial-gradient(ellipse at 50% 120%,#3a2a0e 0,#0d1424 45%,#05070c 80%
 .prose h2{font-size:24px;margin-top:44px;color:var(--gl)}.prose>p:nth-of-type(3):first-letter{float:left;font:64px/0.9 Palatino,serif;color:var(--gl);padding:6px 10px 0 0}
 .archive{list-style:none;padding:0}.archive li{display:flex;gap:24px;padding:16px 0;border-bottom:1px solid #c9a54a22;align-items:baseline}.archive time{width:170px;color:var(--mu)}.archive a{flex:1}
 footer{text-align:center;padding:40px;border-top:1px solid #c9a54a33;color:var(--mu);font-size:13px;letter-spacing:.15em}
+.prose figure{margin:36px -28px;padding:0}
+.prose figure img{display:block;width:100%;max-width:100%;height:auto;border:1px solid #c9a54a55;box-shadow:0 18px 40px #000a;background:var(--nv)}
+.prose figcaption{margin-top:10px;padding-left:14px;border-left:2px solid var(--gold);color:var(--mu);font-size:13px;font-style:italic;line-height:1.5}
+.prose figcaption a{color:var(--gold)}
+.prose figure.tall img,.prose figure img[src*="treaty"]{width:auto;max-height:720px;margin:0 auto}
+@media(max-width:760px){.prose figure{margin:28px 0}}

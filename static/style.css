@@ -46,3 +46,41 @@ footer{text-align:center;padding:40px;border-top:1px solid #c9a54a33;color:var(-
 .prose figcaption a{color:var(--gold)}
 .prose figure.tall img,.prose figure img[src*="treaty"]{width:auto;max-height:720px;margin:0 auto}
 @media(max-width:760px){.prose figure{margin:28px 0}}
+
+/* ---- Mobile layout (phones / small tablets) ---- */
+img,svg,video{max-width:100%}
+.prose,.tcard,.card,.cat,.feature{overflow-wrap:break-word}
+@media(max-width:768px){
+body{font-size:17px;line-height:1.65}
+.top{flex-wrap:wrap;gap:6px 16px;padding:12px 18px}
+.brand{font-size:16px;letter-spacing:.18em}
+.top nav a{margin:0 0 0 18px;font-size:12px}
+.catbar{flex-wrap:wrap;gap:8px 18px;padding:10px 12px;font-size:11px;letter-spacing:.15em;text-align:center}
+main{padding:0 16px 40px}
+.hero{min-height:0;padding:40px 0 90px}
+.hin{padding:16px 20px}
+.hero h1{font-size:40px;overflow-wrap:break-word}
+.hero p{font-size:17px}
+.eyebrow{letter-spacing:.25em;font-size:11px}
+.pyr{width:140%;max-width:none;height:auto}
+.feature{margin-top:-50px;padding:24px 20px}
+.feature h2{font-size:26px}
+.sec{margin:48px 0 24px;font-size:22px}.sec span{padding:0 12px}
+.sec{background-size:90% 1px}
+.cats,.cards{grid-template-columns:1fr;gap:16px}
+.cat,.card{padding:22px}
+.timeline:before{left:7px}
+.timeline li,.timeline li.l,.timeline li.r{width:auto;margin:0;padding:0 0 22px 30px;text-align:left}
+.l .dot,.r .dot{left:1px;right:auto}
+.tcard{padding:18px 18px}.tcard h3{font-size:19px}
+.ahero{height:140px}.glyph{width:60px;height:60px}
+.prose{margin-top:-30px;padding:28px 18px}
+.prose h1{font-size:30px}
+.lede{font-size:18px;padding-left:14px}
+.prose h2{font-size:21px;margin-top:32px}
+.prose>p:nth-of-type(3):first-letter{font-size:52px}
+.prose figure{margin:24px 0}
+.prose figure.tall img,.prose figure img[src*="treaty"]{max-height:none;width:100%}
+.archive li{flex-direction:column;gap:2px;padding:12px 0}.archive time{width:auto;font-size:14px}
+footer{padding:28px 16px;letter-spacing:.08em}
+}

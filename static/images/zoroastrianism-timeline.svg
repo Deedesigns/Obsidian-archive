@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" font-family="Palatino Linotype, Palatino, Georgia, serif">
+  <title>Timeline of Zoroastrianism, c. 1500 BCE to the present (approximate dates)</title>
+  <rect width="1200" height="440" fill="#0d1424"/>
+  <rect x="0.5" y="0.5" width="1199" height="439" fill="none" stroke="#c9a54a55"/>
+  <text x="600" y="40" text-anchor="middle" fill="#f1e6c8" font-size="24" letter-spacing="3">ZOROASTRIANISM · AN APPROXIMATE TIMELINE</text>
+  <text x="600" y="64" text-anchor="middle" fill="#8f8a7c" font-size="14" font-style="italic">Zarathustra's dates are unknown; scholars propose anything from c. 1500 to c. 550 BCE</text>
+  <!-- scale: 1500 BCE at x=60, 2000 CE at x=1140 => 0.30857 px/yr -->
+  <rect x="60" y="176" width="154" height="22" fill="#c9a54a22" stroke="#c9a54a" stroke-dasharray="5 4"/>
+  <text x="137" y="192" text-anchor="middle" fill="#e8c46a" font-size="12">Zarathustra? (early view)</text>
+  <rect x="322" y="176" width="31" height="22" fill="#8f8a7c22" stroke="#8f8a7c" stroke-dasharray="4 3"/>
+  <text x="318" y="192" text-anchor="end" fill="#bdb6a3" font-size="12">late view</text>
+  <rect x="353" y="202" width="68" height="22" fill="#c9a54a55" stroke="#e8c46a"/>
+  <text x="387" y="218" text-anchor="middle" fill="#f1e6c8" font-size="12">Achaemenid</text>
+  <rect x="445" y="176" width="147" height="22" fill="#c9a54a33" stroke="#c9a54a"/>
+  <text x="518" y="192" text-anchor="middle" fill="#e8c46a" font-size="12">Parthian</text>
+  <rect x="592" y="202" width="132" height="22" fill="#c9a54a55" stroke="#e8c46a"/>
+  <text x="658" y="218" text-anchor="middle" fill="#f1e6c8" font-size="12">Sasanian</text>
+  <rect x="740" y="176" width="92" height="22" fill="#8f8a7c22" stroke="#8f8a7c"/>
+  <text x="786" y="192" text-anchor="middle" fill="#bdb6a3" font-size="12">Parsis to India?</text>
+  <line x1="60" y1="240" x2="1140" y2="240" stroke="#c9a54a" stroke-width="1.5"/>
+  <g fill="#8f8a7c" font-size="13" text-anchor="middle">
+    <line x1="60" y1="235" x2="60" y2="245" stroke="#c9a54a"/><text x="60" y="262">1500 BCE</text>
+    <line x1="214" y1="235" x2="214" y2="245" stroke="#c9a54a"/><text x="214" y="262">1000 BCE</text>
+    <line x1="369" y1="235" x2="369" y2="245" stroke="#c9a54a"/><text x="369" y="262">500 BCE</text>
+    <line x1="523" y1="235" x2="523" y2="245" stroke="#c9a54a"/><text x="523" y="262">1 CE</text>
+    <line x1="677" y1="235" x2="677" y2="245" stroke="#c9a54a"/><text x="677" y="262">500</text>
+    <line x1="831" y1="235" x2="831" y2="245" stroke="#c9a54a"/><text x="831" y="262">1000</text>
+    <line x1="986" y1="235" x2="986" y2="245" stroke="#c9a54a"/><text x="986" y="262">1500</text>
+    <line x1="1140" y1="235" x2="1140" y2="245" stroke="#c9a54a"/><text x="1140" y="262">2000 CE</text>
+  </g>
+  <g font-size="13" fill="#e9e2cf">
+    <g transform="translate(137,0)"><line y1="132" y2="176" stroke="#e8c46a"/><rect x="-5" y="122" width="10" height="10" transform="rotate(45 0 127)" fill="#e8c46a"/><text y="110" x="-60" text-anchor="start">c. 1500–1000 BCE? Gathas composed</text><text y="92" x="-60" text-anchor="start" fill="#8f8a7c" font-size="12">oral hymns in Old Avestan</text></g>
+    <g transform="translate(376,0)"><line y1="132" y2="202" stroke="#e8c46a"/><rect x="-5" y="122" width="10" height="10" transform="rotate(45 0 127)" fill="#e8c46a"/><text y="110" text-anchor="middle">c. 520 BCE Darius I</text><text y="92" text-anchor="middle" fill="#8f8a7c" font-size="12">kings rule "by the favour of Ahuramazda"</text></g>
+    <g transform="translate(592,0)"><line y1="132" y2="202" stroke="#e8c46a"/><rect x="-5" y="122" width="10" height="10" transform="rotate(45 0 127)" fill="#e8c46a"/><text y="110" text-anchor="middle">224 CE Ardashir I</text><text y="92" text-anchor="middle" fill="#8f8a7c" font-size="12">Sasanian dynasty begins</text></g>
+    <g transform="translate(830,0)"><line y1="132" y2="176" stroke="#e8c46a"/><rect x="-5" y="122" width="10" height="10" transform="rotate(45 0 127)" fill="#e8c46a"/><text y="110" text-anchor="middle">9th–10th c. Denkard, Bundahishn</text><text y="92" text-anchor="middle" fill="#8f8a7c" font-size="12">Middle Persian works</text></g>
+    <g transform="translate(421,0)"><line y1="245" y2="292" stroke="#e8c46a"/><rect x="-5" y="292" width="10" height="10" transform="rotate(45 0 297)" fill="#e8c46a"/><text y="322" text-anchor="middle">330s BCE Alexander conquers Persia</text></g>
+    <g transform="translate(677,0)"><line y1="245" y2="342" stroke="#e8c46a"/><rect x="-5" y="342" width="10" height="10" transform="rotate(45 0 347)" fill="#e8c46a"/><text y="372" text-anchor="middle">c. 500–600 CE Avesta written down</text></g>
+    <g transform="translate(724,0)"><line y1="245" y2="292" stroke="#e8c46a"/><rect x="-5" y="292" width="10" height="10" transform="rotate(45 0 297)" fill="#e8c46a"/><text y="322" x="14" text-anchor="start">651 Arab conquest ends Sasanian rule</text></g>
+    <g transform="translate(939,0)"><line y1="245" y2="342" stroke="#e8c46a"/><rect x="-5" y="342" width="10" height="10" transform="rotate(45 0 347)" fill="#e8c46a"/><text y="372" text-anchor="middle">1323 oldest Avestan manuscript</text></g>
+    <g transform="translate(1130,0)"><line y1="245" y2="380" stroke="#e8c46a"/><rect x="-5" y="380" width="10" height="10" transform="rotate(45 0 385)" fill="#e8c46a"/><text y="410" x="6" text-anchor="end">Today: communities in India, Iran and the diaspora</text></g>
+  </g>
+  <text x="15" y="430" text-anchor="start" fill="#8f8a7c" font-size="11" font-style="italic">Diagram: Obsidian Archive</text>
+</svg>

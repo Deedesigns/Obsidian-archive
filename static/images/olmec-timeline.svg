@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" font-family="Palatino Linotype, Palatino, Georgia, serif">
+  <title>Timeline of the Olmec, c. 1800 BCE to 1 CE (approximate dates)</title>
+  <rect width="1200" height="440" fill="#0d1424"/>
+  <rect x="0.5" y="0.5" width="1199" height="439" fill="none" stroke="#c9a54a55"/>
+  <text x="600" y="40" text-anchor="middle" fill="#f1e6c8" font-size="24" letter-spacing="3">THE OLMEC · AN APPROXIMATE TIMELINE</text>
+  <text x="600" y="64" text-anchor="middle" fill="#8f8a7c" font-size="14" font-style="italic">Solid bars show commonly cited dates; dashed bars show the wider ranges different scholars propose</text>
+  <!-- scale: 1800 BCE at x=60, 1 CE at x=1140 => 0.6 px/yr -->
+  <rect x="180" y="150" width="240" height="22" fill="#8f8a7c22" stroke="#8f8a7c"/>
+  <text x="300" y="166" text-anchor="middle" fill="#bdb6a3" font-size="12">El Manatí spring offerings</text>
+  <rect x="300" y="176" width="330" height="22" fill="#c9a54a14" stroke="#c9a54a" stroke-dasharray="5 4"/>
+  <rect x="420" y="176" width="180" height="22" fill="#c9a54a55" stroke="#e8c46a"/>
+  <text x="510" y="192" text-anchor="middle" fill="#f1e6c8" font-size="12">San Lorenzo at its height</text>
+  <rect x="600" y="202" width="330" height="22" fill="#c9a54a14" stroke="#c9a54a" stroke-dasharray="5 4"/>
+  <rect x="600" y="202" width="300" height="22" fill="#c9a54a55" stroke="#e8c46a"/>
+  <text x="750" y="218" text-anchor="middle" fill="#f1e6c8" font-size="12">La Venta at its height</text>
+  <rect x="900" y="176" width="240" height="22" fill="#8f8a7c22" stroke="#8f8a7c" stroke-dasharray="4 3"/>
+  <text x="1020" y="192" text-anchor="middle" fill="#bdb6a3" font-size="12">Tres Zapotes and "epi-Olmec"</text>
+  <line x1="60" y1="240" x2="1140" y2="240" stroke="#c9a54a" stroke-width="1.5"/>
+  <g fill="#8f8a7c" font-size="13" text-anchor="middle">
+    <line x1="60" y1="235" x2="60" y2="245" stroke="#c9a54a"/><text x="60" y="262">1800 BCE</text>
+    <line x1="180" y1="235" x2="180" y2="245" stroke="#c9a54a"/><text x="180" y="262">1600</text>
+    <line x1="300" y1="235" x2="300" y2="245" stroke="#c9a54a"/><text x="300" y="262">1400</text>
+    <line x1="420" y1="235" x2="420" y2="245" stroke="#c9a54a"/><text x="420" y="262">1200</text>
+    <line x1="540" y1="235" x2="540" y2="245" stroke="#c9a54a"/><text x="540" y="262">1000</text>
+    <line x1="660" y1="235" x2="660" y2="245" stroke="#c9a54a"/><text x="660" y="262">800</text>
+    <line x1="780" y1="235" x2="780" y2="245" stroke="#c9a54a"/><text x="780" y="262">600</text>
+    <line x1="900" y1="235" x2="900" y2="245" stroke="#c9a54a"/><text x="900" y="262">400</text>
+    <line x1="1020" y1="235" x2="1020" y2="245" stroke="#c9a54a"/><text x="1020" y="262">200 BCE</text>
+    <line x1="1140" y1="235" x2="1140" y2="245" stroke="#c9a54a"/><text x="1140" y="262">1 CE</text>
+  </g>
+  <g font-size="13" fill="#e9e2cf">
+    <g transform="translate(180,0)"><line y1="132" y2="150" stroke="#e8c46a"/><rect x="-5" y="122" width="10" height="10" transform="rotate(45 0 127)" fill="#e8c46a"/><text y="110" x="-110" text-anchor="start">c. 1600 BCE earliest known rubber balls</text><text y="92" x="-110" text-anchor="start" fill="#8f8a7c" font-size="12">offered in a sacred spring at El Manatí</text></g>
+    <g transform="translate(468,0)"><line y1="132" y2="176" stroke="#e8c46a"/><rect x="-5" y="122" width="10" height="10" transform="rotate(45 0 127)" fill="#e8c46a"/><text y="110" text-anchor="middle">c. 1200–900 BCE</text><text y="92" text-anchor="middle" fill="#8f8a7c" font-size="12">most colossal heads carved (dates debated)</text></g>
+    <g transform="translate(900,0)"><line y1="132" y2="176" stroke="#e8c46a"/><rect x="-5" y="122" width="10" height="10" transform="rotate(45 0 127)" fill="#e8c46a"/><text y="110" text-anchor="middle">c. 400 BCE</text><text y="92" text-anchor="middle" fill="#8f8a7c" font-size="12">La Venta declines; Olmec style fades</text></g>
+    <g transform="translate(600,0)"><line y1="245" y2="292" stroke="#e8c46a"/><rect x="-5" y="292" width="10" height="10" transform="rotate(45 0 297)" fill="#e8c46a"/><text y="302" x="14" text-anchor="start">c. 900 BCE? Cascajal Block</text><text y="320" x="14" text-anchor="start" fill="#8f8a7c" font-size="12">possible writing; disputed</text></g>
+    <g transform="translate(570,0)"><line y1="245" y2="370" stroke="#e8c46a"/><rect x="-5" y="370" width="10" height="10" transform="rotate(45 0 375)" fill="#e8c46a"/><text y="400" x="-14" text-anchor="end">10th c. BCE San Lorenzo declines</text></g>
+    <g transform="translate(904,0)"><line y1="245" y2="370" stroke="#e8c46a"/><rect x="-5" y="370" width="10" height="10" transform="rotate(45 0 375)" fill="#e8c46a"/><text y="400" x="-14" text-anchor="end">c. 394 BCE radiocarbon date from La Venta's Great Pyramid</text></g>
+  </g>
+  <text x="15" y="430" text-anchor="start" fill="#8f8a7c" font-size="11" font-style="italic">Diagram: Obsidian Archive</text>
+</svg>

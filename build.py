@@ -76,7 +76,8 @@ def page(title, content, depth=0):
     nav = "".join(f'<a href="{r}category/{s}.html">{n}</a>' for n, (s, _, _) in CATS.items())
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)}</title>
-<link rel="stylesheet" href="{r}static/style.css"></head><body>
+<link rel="stylesheet" href="{r}static/style.css"><link rel="stylesheet" href="{r}static/listen.css">
+<script src="{r}static/listen.js" defer></script></head><body>
 <header class="top"><a class="brand" href="{r}index.html"><span class="sig">◈</span> Obsidian Archive</a>
 <nav><a href="{r}index.html">Home</a><a href="{r}archive.html">Archive</a></nav></header>
 <div class="catbar">{nav}</div>

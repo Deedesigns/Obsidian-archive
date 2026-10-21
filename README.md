@@ -62,8 +62,15 @@ Open http://localhost:8080/
 google-chrome --headless=new --no-sandbox --window-size=1440,2200 --screenshot=screenshots/home.png http://localhost:8080/
 ```
 
+## Narration
+`narrate.py` writes one MP3 per article to `audio/<slug>.mp3` (Kokoro voice `am_michael`, English, mono, about 80 kbps, loudness-normalized to −16 LUFS). It reads the title, lede and body, and skips image captions plus the Sources / Further reading sections. `audio/manifest.json` stores a hash of that text; an MP3 is regenerated only when the article text changes. Commit the `audio/` files. Do not commit `.cache/kokoro/` (the ONNX model and voices file, downloaded on demand).
+
+`python3 build.py` copies those MP3s into the site. When one exists, the article page shows a **Listen to this article** player (play/pause, scrubber, speed 0.75×–1.5×, duration) just under the date line. The browser Web Speech button is only the fallback for an article with no MP3.
+
+On every push to `main` that isn't only an `audio/` change, GitHub Actions installs Kokoro, narrates anything new or edited, commits the MP3s back with `[skip ci]`, then builds and deploys. A TTS failure still deploys the site; that article simply keeps its previous file, or falls back to the browser button if it never had one. A new daily page needs nothing extra in `content/` — the next push narrates it.
+
 ## Listen (read-aloud) button
-Every article page gets a **Listen** control (Play/Pause, Stop, speed 0.75×–1.5×, voice picker) that reads the title, lede and body aloud using the reader's own browser (Web Speech API `speechSynthesis`; free, no API keys). It skips the nav, category tag, date line, image captions, footer and citation markers like `[1]`, reads in sentence-sized chunks so long pages don't cut off, and highlights/scrolls to the paragraph being read. It hides itself in browsers without speech support.
-- Code: `static/listen.js` + `static/listen.css`, included from the shared `page()` template in `build.py`, so **every page built by `python3 build.py` gets it automatically**, including new daily pages. Nothing to add in `content/*.md`.
-- The script attaches to `<article class="prose">` and inserts the control right after `<p class="meta">`. Keep that markup (and the two `listen.*` lines in `page()`) if you ever change the template.
-- Daily pages only need the usual `content/` file (+ images). Do **not** replace `build.py` or `static/` with an older copy, or the button disappears.
+Articles **without** an MP3 get a **Listen** control (Play/Pause, Stop, speed 0.75×–1.5×, voice picker) that reads the title, lede and body aloud using the reader's own browser (Web Speech API `speechSynthesis`; free, no API keys). It skips the nav, category tag, date line, image captions, footer and citation markers like `[1]`, reads in sentence-sized chunks so long pages don't cut off, and highlights/scrolls to the paragraph being read. It hides itself in browsers without speech support, and it hides itself when the narration player is present.
+- Code: `static/listen.js` + `static/listen.css`, included from the shared `page()` template in `build.py`. The narration player adds `static/player.js` on pages that have an MP3. Nothing to add in `content/*.md`.
+- The browser script attaches to `<article class="prose">` and inserts the control right after `<p class="meta">`. Keep that markup (and the `listen.*` lines in `page()`) if you ever change the template.
+- Daily pages only need the usual `content/` file (+ images). Do **not** replace `build.py`, `narrate.py` or `static/` with an older copy, or the player disappears.

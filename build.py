@@ -71,13 +71,28 @@ def parse(p):
     if meta["category"] not in CATS: raise SystemExit(f"{p.name}: unknown category {meta['category']}")
     return meta
 def fmt(d): return datetime.date.fromisoformat(d).strftime("%B %-d, %Y")
-def page(title, content, depth=0):
+def narration_player(src):
+    src = html.escape(src, quote=True)
+    return f"""<div class="narration" data-src="{src}" role="group" aria-label="Listen to this article"><p class="narration-kicker">Listen to this article</p>
+<button type="button" class="narration-play" aria-label="Listen to this article"><span class="narration-ico" aria-hidden="true">&#9654;</span><span class="narration-lbl">Listen</span></button>
+<label class="narration-scrub-wrap"><span class="listen-sr">Position</span><input class="narration-scrub" type="range" min="0" max="0" value="0" step="0.1" aria-label="Playback position"></label>
+<span class="narration-time">0:00 / 0:00</span>
+<label class="narration-opt"><span class="listen-sr">Speed</span><select class="narration-rate" aria-label="Playback speed"><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option></select></label></div>"""
+def page(title, content, depth=0, slug=None):
     r = "../" * depth
+    mp3 = ROOT / "audio" / f"{slug}.mp3" if slug else None
+    if mp3 and mp3.is_file() and mp3.stat().st_size > 0:
+        player = narration_player(f"{r}audio/{slug}.mp3")
+        needle = '</p>\n<p class="lede">'
+        content = content.replace(needle, "</p>\n" + player + '<p class="lede">', 1) if needle in content else player + content
+        extra = f'<script src="{r}static/player.js" defer></script>'
+    else:
+        extra = ""
     nav = "".join(f'<a href="{r}category/{s}.html">{n}</a>' for n, (s, _, _) in CATS.items())
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)}</title>
 <link rel="stylesheet" href="{r}static/style.css"><link rel="stylesheet" href="{r}static/listen.css">
-<script src="{r}static/listen.js" defer></script></head><body>
+<script src="{r}static/listen.js" defer></script>{extra}</head><body>
 <header class="top"><a class="brand" href="{r}index.html"><span class="sig">◈</span> Obsidian Archive</a>
 <nav><a href="{r}index.html">Home</a><a href="{r}archive.html">Archive</a></nav></header>
 <div class="catbar">{nav}</div>
@@ -93,13 +108,18 @@ def main():
     if OUT.exists(): shutil.rmtree(OUT)
     (OUT / "articles").mkdir(parents=True); (OUT / "category").mkdir()
     shutil.copytree(ROOT / "static", OUT / "static")
+    aud = ROOT / "audio"
+    if aud.is_dir():
+        (OUT / "audio").mkdir()
+        for mp3 in aud.glob("*.mp3"):
+            if mp3.stat().st_size > 0: shutil.copy2(mp3, OUT / "audio" / mp3.name)
     for a in arts:
         s, icon, _ = CATS[a["category"]]
         upd = f" · Updated {fmt(a['updated'])}" if a["updated"] != a["published"] else ""
         c = f"""<div class="ahero"><div class="glyph"></div></div><article class="prose"><a class="tag" href="../category/{s}.html">{icon} {a['category']}</a>
 <h1>{html.escape(a['title'])}</h1><p class="meta">Published {fmt(a['published'])}{upd} · {max(1, a['words']//220)} min read</p>
 <p class="lede">{html.escape(a['summary'])}</p>{md(a['body'])}</article>"""
-        (OUT / "articles" / f"{a['slug']}.html").write_text(page(a["title"], c, 1), encoding="utf-8")
+        (OUT / "articles" / f"{a['slug']}.html").write_text(page(a["title"], c, 1, slug=a["slug"]), encoding="utf-8")
     latest = arts[0] if arts else None
     feat = ""
     if latest:

@@ -1,12 +1,14 @@
 /* Obsidian Archive · "Listen" read-aloud control.
    Uses the browser's built-in Web Speech API (speechSynthesis): free, no keys, no servers.
-   Loaded on every page by build.py's shared page() template; it only shows up on
-   article pages (an <article class="prose"> element). Hidden if the browser lacks support. */
+   Loaded on every page by build.py's shared page() template. It is the fallback
+   for article pages that have no pre-generated MP3 (no .narration player) and a
+   browser with speechSynthesis. */
 (function () {
   "use strict";
-  var synth = window.speechSynthesis;
   var article = document.querySelector("article.prose");
-  if (!article || !synth || typeof window.SpeechSynthesisUtterance !== "function") return;
+  if (!article || article.querySelector(".narration")) return;
+  var synth = window.speechSynthesis;
+  if (!synth || typeof window.SpeechSynthesisUtterance !== "function") return;
 
   var RATES = [0.75, 1, 1.25, 1.5];
   var store = {

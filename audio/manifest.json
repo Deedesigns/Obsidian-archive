@@ -1,0 +1,82 @@
+{
+  "articles": {
+    "akhenaten-aten": {
+      "bytes": 4425119,
+      "seconds": 442.4,
+      "sha256": "454089f5c4d872bc559f5b1987547b03faf03b0736b73321ea1216dae7b0a92c"
+    },
+    "cahokia": {
+      "bytes": 4282537,
+      "seconds": 428.15,
+      "sha256": "187a01240094be677a62112a68ea40a44220f35e895d9e06d7150ba17358c928"
+    },
+    "dead-sea-scrolls": {
+      "bytes": 1570516,
+      "seconds": 156.95,
+      "sha256": "86e506056a283180b8a4677e671daa6d0b66072e1c8cf4b9c0070165968905fa"
+    },
+    "gobekli-tepe": {
+      "bytes": 1580615,
+      "seconds": 157.97,
+      "sha256": "48b04bdc7e631d36b8926f6a989dbbf92a3cef4ba9b1ecd3db5e9db51a1298fb"
+    },
+    "great-zimbabwe": {
+      "bytes": 3397176,
+      "seconds": 339.62,
+      "sha256": "9a15809ee5b2ccec7d53918e430903a34baf83e8df2e1e7ee4edf87e856fa399"
+    },
+    "hittites": {
+      "bytes": 3777579,
+      "seconds": 377.65,
+      "sha256": "ce4949d139af86f06f4f4cfcc9f807a1d9940e414ded8709e237169b10254392"
+    },
+    "indus-valley-civilization": {
+      "bytes": 1596685,
+      "seconds": 159.57,
+      "sha256": "ef76710f7b5cca96932504922cac5e718fe29e418b87dcdb13d93385193cbe06"
+    },
+    "minoans-of-crete": {
+      "bytes": 1545556,
+      "seconds": 154.45,
+      "sha256": "ff72bcfcd9f4fc37d6c082073d47c3ceb4bba3896db8f53a37a5cc6851838e4d"
+    },
+    "nag-hammadi-library": {
+      "bytes": 3947273,
+      "seconds": 394.61,
+      "sha256": "4cf929e4d05a5ca0f2fabf67b7e8f1e566abbf215e562da318d570511c3060ed"
+    },
+    "norte-chico": {
+      "bytes": 5509434,
+      "seconds": 550.83,
+      "sha256": "a053991b6d3b0d22ff29613390c400bcc36c8147c4cd3ad27f264949b1064551"
+    },
+    "old-kingdom-egypt": {
+      "bytes": 4295500,
+      "seconds": 429.45,
+      "sha256": "da48f4f15b6bf6c26d6100936d04d57593ced2b0ab3cf9c5442acd684a207734"
+    },
+    "olmec": {
+      "bytes": 4152702,
+      "seconds": 415.17,
+      "sha256": "603ad3ea1680b37a9c6e4d8850b8358defdecd2101535d222aa6e17db7425701"
+    },
+    "origins-of-early-christianity": {
+      "bytes": 1677089,
+      "seconds": 167.61,
+      "sha256": "6f51c73f0b040767abdd113ae80c4d6d769f214ccda2167295fcecb324274f69"
+    },
+    "sumer-first-cities": {
+      "bytes": 1860679,
+      "seconds": 185.97,
+      "sha256": "32c3fd49ade45c623bedeb6fc22e230e64eda1549dfeb14b6b2deabec9a5a7f2"
+    },
+    "zoroastrianism": {
+      "bytes": 3765098,
+      "seconds": 376.4,
+      "sha256": "7081ac75fd93c17a80121b3bb746bd672fca7d38e4798b5ccb3fd29c41720d5b"
+    }
+  },
+  "lang": "en-us",
+  "speed": 1.0,
+  "voice": "am_michael"
+}

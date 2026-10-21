@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="Palatino Linotype, Palatino, Georgia, serif">
+  <title>Timeline of the Nag Hammadi codices: ancient composition, copying and burial (c. 100 to 450 CE), and modern discovery and publication (1945 to 1980)</title>
+  <rect width="1200" height="600" fill="#0d1424"/>
+  <rect x="0.5" y="0.5" width="1199" height="599" fill="none" stroke="#c9a54a55"/>
+  <text x="600" y="40" text-anchor="middle" fill="#f1e6c8" font-size="24" letter-spacing="3">THE NAG HAMMADI CODICES · TWO LIVES</text>
+  <text x="600" y="64" text-anchor="middle" fill="#8f8a7c" font-size="14" font-style="italic">Ancient dates are approximate and debated; the two panels use different scales</text>
+  <text x="80" y="96" fill="#8f8a7c" font-size="13" font-style="italic">Antiquity: composition, copying and burial</text>
+  <rect x="80.0" y="108" width="594.3" height="22" fill="#c9a54a55" stroke="#e8c46a"/>
+  <text x="682.3" y="124" fill="#f1e6c8" font-size="13">Many works composed in Greek, roughly 100–300 CE (debated)</text>
+  <rect x="525.7" y="138" width="148.6" height="22" fill="#c9a54a55" stroke="#e8c46a"/>
+  <text x="682.3" y="154" fill="#f1e6c8" font-size="13">Greek Thomas fragment P.Oxy. 654 copied, later 200s</text>
+  <rect x="796.1" y="168" width="20.8" height="22" fill="#c9a54a55" stroke="#e8c46a"/>
+  <text x="824.9" y="184" fill="#f1e6c8" font-size="13">Dated papyri reused in Codex VII's cover, 341–348 CE</text>
+  <rect x="816.9" y="198" width="154.5" height="22" fill="#c9a54a14" stroke="#e8c46a" stroke-dasharray="5 4"/>
+  <text x="979.4" y="214" fill="#f1e6c8" font-size="13">Codices copied and bound, after 348</text>
+  <line x1="80" y1="242" x2="1120" y2="242" stroke="#c9a54a" stroke-width="1.5"/>
+  <line x1="80.0" y1="236" x2="80.0" y2="248" stroke="#c9a54a"/>
+  <text x="80.0" y="266" text-anchor="middle" fill="#bdb6a3" font-size="13">100 CE</text>
+  <line x1="228.6" y1="236" x2="228.6" y2="248" stroke="#c9a54a"/>
+  <text x="228.6" y="266" text-anchor="middle" fill="#bdb6a3" font-size="13">150 CE</text>
+  <line x1="377.1" y1="236" x2="377.1" y2="248" stroke="#c9a54a"/>
+  <text x="377.1" y="266" text-anchor="middle" fill="#bdb6a3" font-size="13">200 CE</text>
+  <line x1="525.7" y1="236" x2="525.7" y2="248" stroke="#c9a54a"/>
+  <text x="525.7" y="266" text-anchor="middle" fill="#bdb6a3" font-size="13">250 CE</text>
+  <line x1="674.3" y1="236" x2="674.3" y2="248" stroke="#c9a54a"/>
+  <text x="674.3" y="266" text-anchor="middle" fill="#bdb6a3" font-size="13">300 CE</text>
+  <line x1="822.9" y1="236" x2="822.9" y2="248" stroke="#c9a54a"/>
+  <text x="822.9" y="266" text-anchor="middle" fill="#bdb6a3" font-size="13">350 CE</text>
+  <line x1="971.4" y1="236" x2="971.4" y2="248" stroke="#c9a54a"/>
+  <text x="971.4" y="266" text-anchor="middle" fill="#bdb6a3" font-size="13">400 CE</text>
+  <line x1="1120.0" y1="236" x2="1120.0" y2="248" stroke="#c9a54a"/>
+  <text x="1120.0" y="266" text-anchor="middle" fill="#bdb6a3" font-size="13">450 CE</text>
+  <line x1="733.7" y1="248" x2="733.7" y2="282" stroke="#e8c46a" stroke-dasharray="2 3"/>
+  <circle cx="733.7" cy="242" r="4" fill="#e8c46a"/>
+  <text x="727.7" y="294" text-anchor="end" fill="#f1e6c8" font-size="13">c. 320: Pachomius founds his first monastery</text>
+  <line x1="873.4" y1="248" x2="873.4" y2="302" stroke="#e8c46a" stroke-dasharray="2 3"/>
+  <circle cx="873.4" cy="242" r="4" fill="#e8c46a"/>
+  <text x="879.4" y="314" fill="#f1e6c8" font-size="13">367: Athanasius's Festal Letter 39</text>
+  <text x="80" y="372" fill="#8f8a7c" font-size="13" font-style="italic">Modern times: discovery and publication</text>
+  <rect x="912.0" y="384" width="130.0" height="22" fill="#c9a54a55" stroke="#e8c46a"/>
+  <text x="904.0" y="400" text-anchor="end" fill="#f1e6c8" font-size="13">Facsimile edition, 1972–77</text>
+  <line x1="80" y1="428" x2="1120" y2="428" stroke="#c9a54a" stroke-width="1.5"/>
+  <line x1="80.0" y1="422" x2="80.0" y2="434" stroke="#c9a54a"/>
+  <text x="80.0" y="452" text-anchor="middle" fill="#bdb6a3" font-size="13">1940</text>
+  <line x1="210.0" y1="422" x2="210.0" y2="434" stroke="#c9a54a"/>
+  <text x="210.0" y="452" text-anchor="middle" fill="#bdb6a3" font-size="13">1945</text>
+  <line x1="340.0" y1="422" x2="340.0" y2="434" stroke="#c9a54a"/>
+  <text x="340.0" y="452" text-anchor="middle" fill="#bdb6a3" font-size="13">1950</text>
+  <line x1="470.0" y1="422" x2="470.0" y2="434" stroke="#c9a54a"/>
+  <text x="470.0" y="452" text-anchor="middle" fill="#bdb6a3" font-size="13">1955</text>
+  <line x1="600.0" y1="422" x2="600.0" y2="434" stroke="#c9a54a"/>
+  <text x="600.0" y="452" text-anchor="middle" fill="#bdb6a3" font-size="13">1960</text>
+  <line x1="730.0" y1="422" x2="730.0" y2="434" stroke="#c9a54a"/>
+  <text x="730.0" y="452" text-anchor="middle" fill="#bdb6a3" font-size="13">1965</text>
+  <line x1="860.0" y1="422" x2="860.0" y2="434" stroke="#c9a54a"/>
+  <text x="860.0" y="452" text-anchor="middle" fill="#bdb6a3" font-size="13">1970</text>
+  <line x1="990.0" y1="422" x2="990.0" y2="434" stroke="#c9a54a"/>
+  <text x="990.0" y="452" text-anchor="middle" fill="#bdb6a3" font-size="13">1975</text>
+  <line x1="1120.0" y1="422" x2="1120.0" y2="434" stroke="#c9a54a"/>
+  <text x="1120.0" y="452" text-anchor="middle" fill="#bdb6a3" font-size="13">1980</text>
+  <line x1="210.0" y1="434" x2="210.0" y2="468" stroke="#e8c46a" stroke-dasharray="2 3"/>
+  <circle cx="210.0" cy="428" r="4" fill="#e8c46a"/>
+  <text x="216.0" y="480" fill="#f1e6c8" font-size="13">Late 1945: codices found near the Jabal al-Tarif</text>
+  <line x1="392.0" y1="434" x2="392.0" y2="488" stroke="#e8c46a" stroke-dasharray="2 3"/>
+  <circle cx="392.0" cy="428" r="4" fill="#e8c46a"/>
+  <text x="398.0" y="500" fill="#f1e6c8" font-size="13">1952: Jung Institute buys most of Codex I</text>
+  <line x1="496.0" y1="434" x2="496.0" y2="508" stroke="#e8c46a" stroke-dasharray="2 3"/>
+  <circle cx="496.0" cy="428" r="4" fill="#e8c46a"/>
+  <text x="502.0" y="520" fill="#f1e6c8" font-size="13">1956: first edition of a text (Codex I)</text>
+  <line x1="990.0" y1="434" x2="990.0" y2="528" stroke="#e8c46a" stroke-dasharray="2 3"/>
+  <circle cx="990.0" cy="428" r="4" fill="#e8c46a"/>
+  <text x="984.0" y="540" text-anchor="end" fill="#f1e6c8" font-size="13">1975: Zurich leaves of Codex I returned to Cairo</text>
+  <line x1="1042.0" y1="434" x2="1042.0" y2="548" stroke="#e8c46a" stroke-dasharray="2 3"/>
+  <circle cx="1042.0" cy="428" r="4" fill="#e8c46a"/>
+  <text x="1036.0" y="560" text-anchor="end" fill="#f1e6c8" font-size="13">1977: The Nag Hammadi Library in English</text>
+  <text x="1180" y="588" text-anchor="end" fill="#8f8a7c" font-size="11" font-style="italic">Diagram: Obsidian Archive</text>
+</svg>

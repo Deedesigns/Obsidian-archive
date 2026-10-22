@@ -57,6 +57,15 @@ jobs:
             git push origin HEAD:main
           }
       - run: python3 build.py
+      # Story Time is already-built static files in story-time/. build.py
+      # wipes public/ and only emits the history site, so copy the folder in
+      # afterwards. Do not run story-time/narrate.py or story-time/build.py
+      # here; article narration stays on content/*.md via the root narrate.py.
+      - name: Include Story Time in the Pages artifact
+        run: |
+          if [ -d story-time ]; then
+            cp -a story-time public/story-time
+          fi
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

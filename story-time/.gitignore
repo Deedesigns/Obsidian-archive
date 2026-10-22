@@ -1,0 +1,5 @@
+# full-size originals from the image generator (kept locally, not published)
+stories/*/raw/
+.try-*
+__pycache__/
+.narrate*.log

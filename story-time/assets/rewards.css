@@ -1,18 +1,5 @@
-/* Star rewards and the sticker book. The chest and the three stars live on the reward page. */
-
-a.sticker-cta.btn{
-  position:relative;z-index:1;display:flex;width:min(100%,440px);margin:0 auto 18px;
-  min-height:76px;font-size:clamp(1.45rem,5vw,1.95rem)}
-.sticker-cta-mark{
-  display:inline-grid;place-items:center;width:1.35em;height:1.35em;border-radius:50%;
-  background:rgba(255,255,255,.28);font-size:.95em}
-.star-pip{
-  display:inline-flex;align-items:center;justify-content:center;
-  min-width:1.55rem;height:1.55rem;margin-left:.2em;padding:0 .3em;
-  border-radius:999px;background:#fff6d2;color:#3a2300;
-  font-family:var(--chunky);font-size:.85rem;line-height:1;letter-spacing:0;
-  box-shadow:0 1px 0 rgba(90,50,0,.18)}
-.star-pip[hidden]{display:none !important}
+/* Star rewards and the sticker book. The chest and the three stars live on the reward page.
+   The home page reuses those stars and the chest on a progress card. */
 
 .star-meter{
   display:flex;align-items:center;justify-content:center;gap:10px}
@@ -206,3 +193,52 @@ body.reader > .reward-screen{position:fixed;inset:0;z-index:40}
 @media (max-width:360px){
   .sticker-grid-inner{grid-template-columns:repeat(auto-fill,minmax(92px,1fr))}
 }
+
+/* ---------- Home: star path to the chest, My Stickers in the corner ----------
+   The card sits where the big My Stickers button was. Stars and the chest are the
+   same art as the reward page (.star / the chest svg). A waiting chest uses the
+   same glow, wiggle, and aura as .chest-visual.is-glow. */
+.home .hero{position:relative}
+a.corner-stickers.btn{position:absolute;z-index:2;top:0;right:0;width:68px;height:68px;min-height:0;padding:0;
+  border-radius:22px;border:3px solid #fff6d0}
+a.corner-stickers.btn:focus-visible{outline:3px solid #fff;outline-offset:4px}
+@media (min-width:600px){a.corner-stickers.btn{top:16px;right:8px}}
+.corner-stickers-icon{width:44px;height:44px;display:block;flex:none;transform:rotate(-8deg);
+  filter:drop-shadow(0 2px 0 rgba(0,0,0,.2))}
+
+.hsp{position:relative;z-index:1;display:flex;align-items:center;text-decoration:none;color:#fff;-webkit-tap-highlight-color:transparent;
+  background:linear-gradient(180deg,#232a78,#17124f);border-radius:28px;
+  box-shadow:0 0 0 3px rgba(255,213,106,.75),0 7px 0 #0b0a2e,0 12px 26px rgba(0,0,0,.4);
+  transition:transform .12s ease,box-shadow .12s ease}
+.hsp:active{transform:translateY(4px);box-shadow:0 0 0 3px rgba(255,213,106,.75),0 3px 0 #0b0a2e,0 6px 14px rgba(0,0,0,.4)}
+.hsp:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.hsp .chest-svg{width:100%;height:auto;display:block;overflow:visible}
+.hsp .chest-aura{opacity:.35}
+.hsp-a{width:min(100%,440px);margin:0 auto 18px;min-height:96px;padding:10px 14px 10px 18px;gap:6px;justify-content:space-between}
+.hsp-a .hsp-row{display:flex;align-items:center;flex:1;min-width:0}
+.hsp-a .star{width:clamp(48px,14vw,60px);height:clamp(48px,14vw,60px)}
+.hsp-a .hsp-link{flex:1;min-width:8px;height:0;border-top:4px dotted rgba(122,246,255,.55);margin:0 2px}
+.hsp-a .hsp-chest{flex:none;width:clamp(76px,22vw,96px);transform-origin:50% 85%}
+
+.hsp.is-full{box-shadow:0 0 0 3px #ffd56a,0 7px 0 #0b0a2e,0 0 26px rgba(255,197,61,.55)}
+.hsp.is-full .hsp-link{border-top-color:#ffc53d}
+.hsp.is-full .hsp-chest{filter:drop-shadow(0 0 16px rgba(255,213,106,.9)) drop-shadow(0 0 22px rgba(58,215,255,.45));
+  animation:chest-wiggle 2.8s ease-in-out infinite}
+.hsp.is-full .chest-aura{opacity:.8;animation:chest-glow 3.2s ease-in-out infinite}
+
+.hsp .star.is-new{animation:hsp-pop .7s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes hsp-pop{0%{transform:scale(.2) rotate(-30deg);opacity:0}100%{transform:none;opacity:1}}
+
+@media (prefers-reduced-motion:reduce){
+  .hsp .star.is-new{
+    animation-name:hsp-fade !important;
+    animation-duration:.4s !important;
+    animation-timing-function:ease !important;
+    animation-fill-mode:both !important;
+    animation-iteration-count:1 !important;
+  }
+  .hsp .star.sparkle::after{animation:none !important;opacity:0 !important;content:none}
+  .hsp.is-full .hsp-chest,.hsp.is-full .chest-aura{animation:none !important}
+  .hsp,.hsp:active,a.corner-stickers.btn,a.corner-stickers.btn:active{transition:none !important}
+}
+@keyframes hsp-fade{from{opacity:0}to{opacity:1}}

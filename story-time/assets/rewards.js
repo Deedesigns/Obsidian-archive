@@ -247,19 +247,34 @@
     ], 0.06, 1.05, true);
   }
 
-  function renderPip() {
-    var pip = document.getElementById('star-pip');
-    if (!pip) return;
-    var n = load().stars;
-    var link = pip.closest('a');
-    if (n > 0) {
-      pip.hidden = false;
-      pip.textContent = String(n);
-      if (link) link.setAttribute('aria-label', 'My Stickers, ' + n + (n === 1 ? ' star' : ' stars'));
-    } else {
-      pip.hidden = true;
-      pip.textContent = '';
-      if (link) link.removeAttribute('aria-label');
+  /* Home star path. Same record as the reward page: a chest is waiting once stars >= NEED
+     (opening one spends NEED). A star earned since the last home visit in this tab pops in. */
+  function renderHomeStars() {
+    var nodes = document.querySelectorAll('.hsp');
+    if (!nodes.length) return;
+    var n = load().stars || 0;
+    var k = Math.max(0, Math.min(NEED, n));
+    var seen = k;
+    try {
+      var raw = sessionStorage.getItem('storytime.homeStars');
+      seen = +(raw || k);
+      if (!isFinite(seen)) seen = k;
+      sessionStorage.setItem('storytime.homeStars', String(k));
+    } catch (err) {}
+    var waiting = k >= NEED;
+    var label = waiting ? 'Your chest is ready!' : (k + ' of ' + NEED + ' stars. Open my stars');
+    for (var c = 0; c < nodes.length; c++) {
+      var el = nodes[c];
+      el.dataset.n = String(k);
+      el.classList.toggle('is-full', waiting);
+      el.setAttribute('aria-label', label);
+      var stars = el.querySelectorAll('.star');
+      for (var i = 0; i < stars.length; i++) {
+        var fresh = i < k && i >= seen;
+        stars[i].classList.toggle('on', i < k);
+        stars[i].classList.toggle('is-new', fresh);
+        stars[i].classList.toggle('sparkle', fresh);
+      }
     }
   }
 
@@ -566,7 +581,7 @@
     if (reduced() || !img || !img.animate || !target) {
       reveal.hidden = true;
       opening = false;
-      renderPip();
+      renderHomeStars();
       renderCollection();
       return;
     }
@@ -594,7 +609,7 @@
         void target.offsetWidth;
         target.classList.add('pocket-ping');
       }
-      renderPip();
+      renderHomeStars();
       renderCollection();
     }
     anim.onfinish = end;
@@ -692,13 +707,13 @@
   }
 
   function refreshAll() {
-    renderPip();
+    renderHomeStars();
     renderCollection();
   }
 
   function boot() {
     try {
-      renderPip();
+      renderHomeStars();
       renderCollection();
       bindReset();
       if (document.body.classList.contains('reward-page')) runReward(bookFromQuery());

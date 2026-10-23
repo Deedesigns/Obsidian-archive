@@ -345,7 +345,7 @@
       '<div class="reward-stage">' +
         '<p class="reward-msg" id="reward-msg">' + esc(msg) + '</p>' +
         '<div id="reward-meter"></div>' +
-        '<button type="button" class="reward-open" id="reward-open" hidden disabled>' +
+        '<button type="button" class="reward-open" id="reward-open" disabled>' +
           '<span class="chest-visual" id="reward-chest">' + CHEST + '</span>' +
           '<span class="reward-open-label" id="reward-label" hidden>Tap to open!</span>' +
         '</button>' +
@@ -544,6 +544,23 @@
     if (meter) {
       meter.hidden = false;
       meter.innerHTML = meterHTML(Math.min(starsLeft, NEED));
+    }
+    var openBtn = document.getElementById('reward-open');
+    var chest = document.getElementById('reward-chest');
+    var label = document.getElementById('reward-label');
+    if (openBtn && chest) {
+      chest.classList.remove('is-open', 'is-wiggle', 'is-glow', 'is-aside');
+      openBtn.classList.remove('is-ready');
+      openBtn.hidden = false;
+      if (starsLeft >= NEED) {
+        openBtn.disabled = false;
+        openBtn.classList.add('is-ready');
+        chest.classList.add('is-wiggle', 'is-glow');
+        if (label) label.hidden = false;
+      } else {
+        openBtn.disabled = true;
+        if (label) label.hidden = true;
+      }
     }
     var target = document.querySelector('#reward-actions a');
     if (reduced() || !img || !img.animate || !target) {

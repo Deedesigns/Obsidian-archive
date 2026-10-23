@@ -33,13 +33,13 @@ a.sticker-cta.btn{
 .star-meter.extra{animation:meter-pulse .8s ease}
 @keyframes meter-pulse{0%,100%{transform:scale(1)}40%{transform:scale(1.06)}}
 
-.chest-visual{display:block;width:min(210px,56vw);filter:drop-shadow(0 0 12px rgba(255,213,106,.45))}
+.chest-visual{display:block;width:min(210px,56vw);filter:drop-shadow(0 8px 12px rgba(0,0,0,.28))}
 .chest-svg{width:100%;height:auto;overflow:visible;display:block}
 .chest-lid{transform-box:fill-box;transform-origin:50% 100%;transition:transform .7s cubic-bezier(.2,1.15,.3,1)}
 .chest-visual.is-open .chest-lid{transform:translateY(-8px) rotate(-62deg)}
 .chest-visual.is-wiggle{animation:chest-wiggle 2.8s ease-in-out infinite}
 .chest-visual.is-glow{filter:drop-shadow(0 0 16px rgba(255,213,106,.9)) drop-shadow(0 0 22px rgba(58,215,255,.45))}
-.chest-aura{transform-box:fill-box;transform-origin:center}
+.chest-aura{transform-box:fill-box;transform-origin:center;opacity:0}
 .chest-visual.is-glow .chest-aura{animation:chest-glow 3.2s ease-in-out infinite}
 @keyframes chest-wiggle{0%,100%{transform:rotate(-2.2deg)}50%{transform:rotate(2.2deg)}}
 @keyframes chest-glow{0%,100%{opacity:.35}50%{opacity:.75}}
@@ -57,11 +57,14 @@ body.reader > .reward-screen{position:fixed;inset:0;z-index:40}
     radial-gradient(ellipse 55% 40% at 6% 100%,rgba(255,122,26,.18),transparent 70%),
     linear-gradient(180deg,#050822 0%,#10154a 55%,#24145c 100%)}
 .reward-stage{
-  position:relative;z-index:1;width:min(100%,480px);max-width:100%;
+  position:relative;z-index:1;width:min(100%,520px);max-width:100%;
   min-height:100%;box-sizing:border-box;
-  display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
-  gap:18px;padding:max(36px,8vh) 18px max(18px,env(safe-area-inset-bottom))}
-.reward-screen .star{width:clamp(58px,18vw,86px);height:clamp(58px,18vw,86px)}
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:clamp(14px,2.6vh,26px);
+  padding:max(16px,env(safe-area-inset-top)) 18px max(16px,env(safe-area-inset-bottom))}
+.reward-screen .star{width:clamp(78px,23vw,112px);height:clamp(78px,23vw,112px)}
+.reward-screen .star-meter{gap:clamp(10px,3vw,18px)}
+.reward-screen .chest-visual{width:min(280px,70vw)}
 .reward-msg{
   margin:0;min-height:1.2em;max-width:22em;text-align:center;
   font-family:var(--chunky);font-size:clamp(1.25rem,4.6vw,1.7rem);line-height:1.25;
@@ -71,7 +74,8 @@ body.reader > .reward-screen{position:fixed;inset:0;z-index:40}
   appearance:none;-webkit-appearance:none;border:0;background:transparent;color:inherit;
   display:flex;flex-direction:column;align-items:center;gap:8px;
   padding:4px;margin:0;max-width:100%;touch-action:manipulation;cursor:pointer}
-.reward-open:disabled{cursor:default}
+.reward-open:disabled{cursor:default;opacity:1}
+.reward-open:not(.is-ready){pointer-events:none}
 .reward-open:focus-visible{outline:3px solid #fff;outline-offset:6px;border-radius:28px}
 .reward-open-label{
   display:inline-flex;align-items:center;justify-content:center;
@@ -121,15 +125,17 @@ body.reader > .reward-screen{position:fixed;inset:0;z-index:40}
   margin:.2em 0 0;font-family:var(--chunky);color:#bfefff;font-size:1.15rem}
 
 @media (orientation:landscape) and (max-height:520px){
-  .reward-stage{gap:8px;padding:8px 16px;width:min(100%,760px);flex-direction:row;flex-wrap:wrap;align-content:center;justify-content:center}
-  .reward-msg{width:100%;font-size:1.15rem;min-height:0}
-  .reward-screen .star{width:46px;height:46px}
-  .reward-screen .star-meter{gap:6px}
-  .chest-visual{width:118px}
-  .reward-open{flex-direction:row;gap:12px}
-  .reward-open-label{min-height:64px;min-width:220px;font-size:1.55rem;border-radius:22px;box-shadow:inset 0 2px 0 rgba(255,255,255,.55),0 5px 0 #b77400,0 0 18px rgba(255,197,61,.35)}
+  .reward-stage{
+    gap:6px;padding:6px 18px;width:min(100%,780px);min-height:100%;
+    flex-direction:column;flex-wrap:nowrap;align-content:center;justify-content:center}
+  .reward-msg{width:100%;font-size:1.05rem;min-height:0;line-height:1.15}
+  .reward-screen .star{width:48px;height:48px}
+  .reward-screen .star-meter{gap:8px}
+  .reward-screen .chest-visual{width:112px}
+  .reward-open{flex-direction:column;gap:4px}
+  .reward-open-label{min-height:54px;min-width:210px;font-size:1.4rem;border-radius:20px;box-shadow:inset 0 2px 0 rgba(255,255,255,.55),0 5px 0 #b77400,0 0 18px rgba(255,197,61,.35)}
   .reward-actions{flex-direction:row;width:auto;gap:10px}
-  .reward-actions .btn{min-height:52px;width:auto;font-size:1.15rem;padding:.35em .9em}
+  .reward-actions .btn{min-height:48px;width:auto;font-size:1.1rem;padding:.3em .85em}
   .reward-reveal img{width:min(28vh,140px)}
   .reward-name{font-size:1.6rem}
 }

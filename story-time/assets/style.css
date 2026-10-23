@@ -255,8 +255,8 @@ html:has(body.reader){max-width:100%;overflow-x:clip}
   .stage,.spread .stage{
     margin:21px 21px 8px 21px;
     margin:calc(env(safe-area-inset-top,0px) + 21px) calc(env(safe-area-inset-right,0px) + 21px) 8px calc(env(safe-area-inset-left,0px) + 21px)}
-  .trail{height:18px;margin:0 auto 4px;margin-bottom:max(4px,env(safe-area-inset-bottom,0px));width:min(520px,calc(100% - 4.8rem))}
-  .trail .rocket{font-size:1.2rem}.trail .goal{font-size:1.05rem;right:0}
+  .trail{height:18px;margin:0 auto 4px;margin-bottom:max(4px,env(safe-area-inset-bottom,0px));width:min(520px,72%)}
+  .trail .rocket{font-size:1.2rem}.trail .goal{font-size:1.05rem;right:-20px}
   .trail .stop{width:8px;height:8px;margin:-4px 0 0 -4px}
 }
 /* Phone held upright: the header floats, so the page's own frame has the same gap
@@ -308,3 +308,10 @@ body.home .sky{position:absolute;bottom:0;min-height:100vh}
   text-shadow:0 1px 2px rgba(4,6,28,.85),0 0 18px rgba(255,197,61,.5)}
 .page.full.tone-dark.reading .ftxt{color:#3a1d00;text-shadow:0 0 2px rgba(255,252,240,.9),0 0 16px rgba(255,214,120,.9)}
 .page.full.tight .ftxt{line-height:1.18;padding:clamp(8px,2.4cqh,16px) clamp(10px,3.2cqw,24px) 0}
+/* Sideways phone: the half page is the full-screen book from the landscape rules above
+   (same stage, same 21px frame). Words stay in the top band, but that band is also
+   where the header floats, so keep the first line under those buttons. The padding
+   does not change when the buttons fade, and the picture still fills the page width. */
+@media (orientation:landscape) and (max-height:520px){
+  .half.full .ftxt,.half.full.tight .ftxt{padding-top:max(36px,4.5cqh)}
+}

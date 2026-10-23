@@ -222,24 +222,38 @@ a{color:inherit}
 .trail .goal{position:absolute;right:-30px;top:50%;transform:translateY(-50%);font-size:1.6rem;filter:drop-shadow(0 0 8px rgba(255,214,90,.8))}
 .trail .rocket{position:absolute;top:50%;left:0;font-size:1.9rem;transform:translate(-50%,-55%) rotate(45deg);transition:left .7s cubic-bezier(.4,0,.2,1);
   filter:drop-shadow(0 0 8px rgba(255,122,26,.9))}
-/* phone turned sideways: the book gets almost the whole screen, buttons move to the sides */
+/* Phone turned sideways: the open book fills the visible screen.
+   Header buttons and the progress trail float over a thin edge of sky so they stay
+   tappable without carving a big hole out of the spread. 100svh is the fallback
+   when 100dvh is unsupported; 100dvh tracks the mobile toolbar as it shows and hides.
+   Safe-area insets keep the book and the buttons off the notch and the home indicator. */
 @media (orientation:landscape) and (max-height:520px){
-  .bar{padding:4px max(10px,env(safe-area-inset-right)) 0 max(10px,env(safe-area-inset-left))}
+  html:has(body.reader),body.reader{height:100svh;height:100dvh;overflow:hidden}
+  .reader > .bar{position:absolute;top:0;left:0;right:0;z-index:9;justify-content:space-between;pointer-events:none;
+    padding:max(4px,env(safe-area-inset-top,0px)) max(8px,env(safe-area-inset-right,0px)) 0 max(8px,env(safe-area-inset-left,0px))}
+  .reader > .bar .icon-btn,.reader > .bar .mode{pointer-events:auto}
   .icon-btn,.mode{height:44px;min-height:44px}.icon-btn{width:44px;font-size:1.4rem;border-radius:14px}
-  .mode{font-size:1rem;border-radius:14px}.mode .sw{width:46px;height:28px}.mode .sw::after{width:22px;height:22px}
+  .mode{font-size:1rem;border-radius:14px;padding:6px 10px}.mode .lbl{display:none}
+  .mode .sw{width:46px;height:28px}.mode .sw::after{width:22px;height:22px}
   .mode[aria-pressed=true] .sw::after{transform:translateX(18px)}
-  .bar .title{margin-left:52px;font-size:clamp(.95rem,2.4vw,1.25rem)}
+  .bar .title{position:absolute;left:50%;top:max(6px,env(safe-area-inset-top,0px));transform:translateX(-50%);
+    flex:none;width:max-content;max-width:min(46%,420px);margin:0;padding:3px 12px 4px;line-height:1.15;
+    font-size:clamp(.85rem,2vw,1.1rem);pointer-events:none;
+    background:rgba(7,11,36,.72);border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.35)}
   .controls{display:contents}
-  .nav{position:fixed;top:calc(50% + 14px);transform:translateY(-50%);z-index:8;width:50px;height:64px;font-size:1.7rem;border-radius:16px}
+  .nav{position:fixed;top:calc(50% - 6px);transform:translateY(-50%);z-index:8;width:48px;height:60px;font-size:1.7rem;border-radius:16px}
   .nav:active:not(:disabled){transform:translateY(calc(-50% + 4px))}
-  #prev{left:max(6px,env(safe-area-inset-left))}#next{right:max(6px,env(safe-area-inset-right))}
-  .play{position:fixed;z-index:8;top:4px;left:calc(max(10px,env(safe-area-inset-left)) + 52px);width:44px;height:44px;font-size:1.25rem;
+  #prev{left:max(6px,env(safe-area-inset-left,0px))}#next{right:max(6px,env(safe-area-inset-right,0px))}
+  .play{position:fixed;z-index:8;top:max(4px,env(safe-area-inset-top,0px));left:calc(max(8px,env(safe-area-inset-left,0px)) + 50px);
+    width:44px;height:44px;font-size:1.25rem;
     box-shadow:inset 0 2px 0 rgba(255,255,255,.45),0 4px 0 #a8320f,0 0 16px rgba(255,122,26,.6)}
   .play:active{transform:translateY(3px)}
-  .stage,.spread .stage{margin:12px calc(max(6px,env(safe-area-inset-right)) + 62px) 4px calc(max(6px,env(safe-area-inset-left)) + 62px)}
-  .trail{height:20px;margin:2px auto max(7px,env(safe-area-inset-bottom));width:min(420px,56%)}
-  .trail .rocket{font-size:1.35rem}.trail .goal{font-size:1.15rem;right:-22px}
-  .trail .stop{width:9px;height:9px;margin:-4.5px 0 0 -4.5px}
+  /* ~90% of a short landscape viewport once the floating trail is set aside.
+     42px side insets leave a gutter for the arrows; safe areas add to that on notched phones. */
+  .stage,.spread .stage{margin:max(8px,env(safe-area-inset-top,0px)) calc(env(safe-area-inset-right,0px) + 42px) 8px calc(env(safe-area-inset-left,0px) + 42px)}
+  .trail{height:18px;margin:0 auto 4px;margin-bottom:max(4px,env(safe-area-inset-bottom,0px));width:min(520px,72%)}
+  .trail .rocket{font-size:1.2rem}.trail .goal{font-size:1.05rem;right:-20px}
+  .trail .stop{width:8px;height:8px;margin:-4px 0 0 -4px}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}

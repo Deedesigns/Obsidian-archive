@@ -134,6 +134,44 @@ EMBLEM = '''<svg class="emblem" viewBox="0 0 120 130" aria-hidden="true">
   </g>
 </svg>'''
 
+# Same polygon as rewards.js STAR, and the same chest drawing as rewards.js CHEST.
+_STAR = '32,4 39.2,24.2 60.5,25.6 44.2,39.2 49.2,60 32,48.6 14.8,60 19.8,39.2 3.5,25.6 24.8,24.2'
+_CHEST = (
+    '<span class="hsp-chest"><svg class="chest-svg" viewBox="0 0 160 148" aria-hidden="true">'
+    '<ellipse class="chest-aura" cx="80" cy="126" rx="56" ry="11" fill="#7af6ff"/>'
+    '<g class="chest-lid">'
+    '<path d="M32 74V58C32 32 128 32 128 58v16Z" fill="#3d348f" stroke="#ffd56a" stroke-width="4" stroke-linejoin="round"/>'
+    '<path d="M46 68c0-16 68-16 68 0" fill="none" stroke="#7af6ff" stroke-width="3" stroke-linecap="round"/>'
+    '<circle cx="80" cy="52" r="6" fill="#ffc53d" stroke="#1a1038" stroke-width="2"/>'
+    '</g><g class="chest-base">'
+    '<rect x="26" y="70" width="108" height="48" rx="10" fill="#2a226e" stroke="#ffd56a" stroke-width="4"/>'
+    '<rect x="26" y="86" width="108" height="10" fill="#ffc53d"/>'
+    '<rect x="70" y="70" width="20" height="48" fill="#e8b23a"/>'
+    '<circle cx="80" cy="102" r="7" fill="#3ad7ff" stroke="#1a1038" stroke-width="2"/>'
+    '<circle cx="80" cy="102" r="2.6" fill="#fff"/>'
+    '</g></svg></span>'
+)
+CORNER_STICKERS = (
+    '<a class="corner-stickers btn blue" data-fly-target href="stickers.html" aria-label="My Stickers">'
+    '<svg class="corner-stickers-icon" viewBox="0 0 48 48" aria-hidden="true">'
+    '<path d="M11 5h26a5 5 0 0 1 5 5v18L28 43H11a5 5 0 0 1-5-5V10a5 5 0 0 1 5-5Z" fill="#fff6d0" stroke="#0d3f96" stroke-width="3.2" stroke-linejoin="round"/>'
+    f'<g transform="translate(9.5 7.5) scale(.42)"><polygon points="{_STAR}" fill="#ffc53d" stroke="#b77400" stroke-width="5.5" stroke-linejoin="round"/></g>'
+    '<path d="M42 28H33a5 5 0 0 0-5 5v10Z" fill="#ffe58a" stroke="#0d3f96" stroke-width="3.2" stroke-linejoin="round"/>'
+    '</svg></a>'
+)
+
+
+def star_card_html():
+    slot = (
+        '<span class="star" data-slot="{i}">'
+        f'<svg viewBox="0 0 64 64" aria-hidden="true"><polygon points="{_STAR}"/></svg></span>'
+    )
+    row = '<i class="hsp-link"></i>'.join(slot.format(i=i) for i in range(3)) + '<i class="hsp-link hsp-link-end"></i>'
+    return (
+        '<a class="hsp hsp-a" href="rewards.html" aria-label="0 of 3 stars. Open my stars">'
+        f'<span class="hsp-row">{row}</span>{_CHEST}</a>'
+    )
+
 
 def home_html(stories):
     body = ''
@@ -164,11 +202,12 @@ def home_html(stories):
 var iso=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
 b.textContent=b.dataset.date===iso?"🌙 Tonight's Adventure":"🌙 Newest Adventure";})();
 </script>'''
+    card = star_card_html()
     return HEAD.format(v=V, theme='#bfe6ff', title=SITE_NAME, css='assets/style.css',
                        extra=f'<link rel="stylesheet" href="assets/rewards.css?v={V}">') + f'''
 <body class="home"><div class="sky" aria-hidden="true"></div><div class="wrap">
-<header class="hero">{EMBLEM}<h1>{SITE_NAME.upper()}</h1><p>A brand-new adventure every night!</p></header>
-<a class="sticker-cta btn blue" data-fly-target href="stickers.html"><span class="sticker-cta-mark" aria-hidden="true">✦</span> My Stickers<span class="star-pip" id="star-pip" hidden></span></a>
+<header class="hero">{CORNER_STICKERS}{EMBLEM}<h1>{SITE_NAME.upper()}</h1><p>A brand-new adventure every night!</p></header>
+{card}
 {body}
 <p class="foot">{len(stories)} {'adventure' if len(stories) == 1 else 'adventures'} so far · a new one every day</p>
 </div><script src="assets/sky.js?v={V}"></script>

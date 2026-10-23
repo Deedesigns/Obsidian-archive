@@ -92,6 +92,8 @@ def reader_html(s):
     data = {k: s[k] for k in ('title', 'date', 'cover', 'pages') if k in s}
     if s.get('end'):
         data['end'] = s['end']
+    if s.get('layout'):
+        data['layout'] = s['layout']
     blob = json.dumps(data, ensure_ascii=False).replace('</', '<\\/')
     return HEAD.format(v=V, theme='#2c2a5a', title=e(s['title']) + ' · ' + SITE_NAME, css='../../assets/style.css',
                        extra=f'<link rel="stylesheet" href="../../assets/rewards.css?v={V}">') + f'''

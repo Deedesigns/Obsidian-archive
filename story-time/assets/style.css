@@ -287,3 +287,24 @@ body.reader.chrome-quiet .play{pointer-events:none}
 body.home{position:relative;height:auto;min-height:100%;background:#24145c}
 body.home .sky{position:absolute;bottom:0;min-height:100vh}
 @media (max-width:520px){.start{font-size:1.3rem;padding:.4em .7em;max-width:100%}}
+
+/* ---------- Full-bleed pages (story.json "layout": "fullbleed") ----------
+   One picture fills the page; the words sit in the picture's own empty top band (no box, soft shadow only).
+   The picture is drawn at full page width and anchored to the bottom, so the art is never cropped:
+   a taller page shows extra sky above it, a wider page loses only sky at the top. reader.js fitFull() keeps the words above the art. */
+.page.full{display:block;container-type:size;--sky:#0e1637;background:var(--sky)}
+.page.full .pic{position:absolute;inset:0;background:none}
+.page.full .pic img{position:absolute;left:0;right:0;bottom:0;top:auto;width:100%;height:auto}
+@container (aspect-ratio < 4/3){
+  .page.full .pic img{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 8%);mask-image:linear-gradient(180deg,transparent 0,#000 8%)}
+}
+.page.full .ftxt{position:absolute;z-index:2;top:0;left:0;right:0;margin:0;text-align:center;font-weight:600;line-height:1.3;text-wrap:pretty;
+  color:#fff7e2;text-shadow:0 1px 2px rgba(4,6,28,.85),0 0 16px rgba(4,6,28,.55);
+  font-size:clamp(1.4rem,3.7vw,2.2rem);padding:clamp(16px,3.4cqh,30px) clamp(16px,5cqw,40px) 0}
+.page.full.tone-dark .ftxt{color:#1f1b3a;text-shadow:0 0 2px rgba(255,252,240,.9),0 0 14px rgba(255,252,240,.75)}
+.half.full .ftxt{font-size:clamp(15px,4.6cqw,30px);padding:4.5cqh 4.8cqw 0}
+.page.full .num{z-index:2;color:rgba(255,240,205,.85);text-shadow:0 1px 3px rgba(0,0,0,.8)}
+.page.full.reading .ftxt,.half.full.reading .ftxt{background:none;box-shadow:none;color:#ffe9a6;
+  text-shadow:0 1px 2px rgba(4,6,28,.85),0 0 18px rgba(255,197,61,.5)}
+.page.full.tone-dark.reading .ftxt{color:#3a1d00;text-shadow:0 0 2px rgba(255,252,240,.9),0 0 16px rgba(255,214,120,.9)}
+.page.full.tight .ftxt{line-height:1.18;padding:clamp(8px,2.4cqh,16px) clamp(10px,3.2cqw,24px) 0}

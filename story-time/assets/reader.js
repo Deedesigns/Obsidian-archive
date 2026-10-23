@@ -1,6 +1,8 @@
 /* Picture-book reader. Story data is embedded in the page as <script id="story" type="application/json">.
    Portrait: one page at a time, the page curls off to the left.
-   Landscape (phone turned sideways, tablet, desktop): an open book with two pages side by side and a 3D page flip. */
+   Landscape (phone turned sideways, tablet, desktop): an open book with two pages side by side and a 3D page flip.
+   story.layout === 'fullbleed': every page is one full-bleed picture with the words set in the picture's empty top band
+   (see fitFull). Stories without the flag keep the classic picture-over-text-strip page. */
 (function () {
   'use strict';
   var story = JSON.parse(document.getElementById('story').textContent);
@@ -19,6 +21,7 @@
   var mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   var spreadMode = mqSpread.matches;
   var FLIP_MS = 850, EASE = 'cubic-bezier(.45,.05,.3,1)';
+  var FULL = story.layout === 'fullbleed';
 
   // ---------- spreads: [_ | cover], [p1 | p2], [p3 | p4], ... ----------
   function spreadOf(i) { return i === 0 ? 0 : Math.ceil(i / 2); }
@@ -59,6 +62,16 @@
         '<a class="btn blue" href="../../index.html">\ud83d\uddfa\ufe0f More adventures</a></div></div>';
     } else {
       var p = story.pages[i - 1];
+      if (FULL) {   // full-bleed picture, words in the picture's empty top band
+        el.classList.add('full');
+        if ((p.textTone || story.textTone) === 'dark') el.classList.add('tone-dark');
+        el.setAttribute('data-safe', p.safe || story.safe || 0.38);
+        if (p.sky) el.style.setProperty('--sky', p.sky);
+        el.innerHTML = '<div class="pic"><img alt="" draggable="false" src="' + esc(p.image) + '"></div>' +
+          '<p class="ftxt">' + esc(p.text) + '</p><span class="num">' + i + ' / ' + N + '</span>';
+        var im = el.querySelector('img');
+        im.addEventListener('load', function () { if (el.isConnected) refit(el); });
+      } else
       el.innerHTML = '<div class="pic"><img alt="" draggable="false" src="' + esc(p.image) + '"></div>' +
         '<div class="txt"><p style="margin:0">' + esc(p.text) + '</p></div><span class="num">' + i + ' / ' + N + '</span>';
     }
@@ -95,14 +108,63 @@
 
   // In the open book the text shares a half page with the picture: shrink the text a little if the picture gets squeezed.
   function fit(el) {
-    if (!spreadMode || !el) return;
+    if (!el) return;
+    if (el.classList.contains('full')) { fitFull(el); return; }
+    if (!spreadMode) return;
     var t = el.querySelector('.txt'), pic = el.querySelector('.pic');
     if (!t || !pic) return;
     t.style.fontSize = '';
     var fs = parseFloat(getComputedStyle(t).fontSize), guard = 0;
     while (pic.clientHeight < el.clientHeight * 0.5 && fs > 14 && guard++ < 24) { fs -= 1; t.style.fontSize = fs + 'px'; }
   }
-  function fitAll() { if (book) Array.prototype.forEach.call(book.querySelectorAll('.page'), fit); }
+  function fitAll() {
+    if (book) { Array.prototype.forEach.call(book.querySelectorAll('.page:not(.full)'), fit); fitGroup(book.querySelectorAll('.page.full')); }
+    else if (curEl) fit(curEl);
+  }
+
+  // ---------- full-bleed pages ----------
+  // The picture is drawn at the full page width, anchored to the bottom (CSS). A page taller than the picture shows extra sky
+  // above it (the picture's top edge fades into the page's --sky colour); a page wider than the picture loses only sky at the top.
+  // data-safe = fraction of the picture's height, from the top, that is empty background (measured by make_story.py analyze).
+  // The words must end above that line (plus a small gap). In order: shrink the words a little (to 82% of the normal size,
+  // never below 15px), then further (to 14px), and only as a last resort slide the picture down (crops its bottom, max 12%).
+  function fitFull(el, forceFs) {
+    var img = el.querySelector('img'), tx = el.querySelector('.ftxt');
+    if (!img || !tx) return 0;
+    tx.style.fontSize = ''; tx.style.marginTop = ''; img.style.bottom = ''; el.classList.remove('shifted', 'tight');
+    var H = el.clientHeight, W = el.clientWidth;
+    if (!H || !W) return 0;
+    var ar = img.naturalWidth ? img.naturalHeight / img.naturalWidth : 0.75;
+    var drawnH = W * ar, safe = parseFloat(el.getAttribute('data-safe')) || 0.38, gap = Math.max(6, H * 0.03), shift = 0;
+    function artTop() { return H + shift - drawnH * (1 - safe) - gap; }
+    function over() { return tx.offsetTop + tx.offsetHeight > artTop(); }
+    var base = parseFloat(getComputedStyle(tx).fontSize), fs = forceFs || base, guard = 0;
+    tx.style.fontSize = fs + 'px';
+    function shrink(to) { while (!forceFs && over() && fs > to && guard++ < 80) { fs -= 0.5; tx.style.fontSize = fs + 'px'; } }
+    shrink(Math.max(15, base * 0.82)); shrink(14);
+    if (over()) el.classList.add('tight');                          // small page (phone sideways): tighter lines and margins
+    if (H < 420) shrink(13);
+    while (over() && shift < drawnH * 0.12) shift += 2;
+    if (shift) { img.style.bottom = (-shift) + 'px'; el.classList.add('shifted'); }
+    var spare = artTop() - (tx.offsetTop + tx.offsetHeight);       // lots of extra sky (upright phone): center the words in it
+    if (drawnH < H * 0.8 && spare > 30) tx.style.marginTop = Math.round(spare * 0.45) + 'px';
+    el.setAttribute('data-fit', fs + 'px base ' + base.toFixed(1) + ' shift ' + shift + (over() ? ' OVERLAP' : ' ok'));
+    return fs;
+  }
+  // pages shown side by side get the same text size
+  function fitGroup(list) {
+    var els = Array.prototype.filter.call(list, function (e) { return e && e.classList.contains('full'); });
+    if (!els.length) return;
+    var sizes = els.map(function (e) { return fitFull(e); });
+    if (els.length > 1) {
+      var m = Math.min.apply(null, sizes);
+      els.forEach(function (e, j) { if (sizes[j] !== m) fitFull(e, m); });
+    }
+  }
+  function refit(el) {
+    if (book && book.contains(el)) fitAll();
+    else if (el === curEl) fitFull(el);
+  }
 
   function updateUI() {
     if (spreadMode) {
@@ -193,6 +255,7 @@
         anim(shadeOf(old), [{ opacity: 0 }, { opacity: 0.6 }])
       ], function () { el.classList.remove('turning'); if (old.parentNode) old.parentNode.removeChild(old); celebrate(el); });
     }
+    fit(el);
     preload(i + 1);
     updateUI();
   }
@@ -256,7 +319,8 @@
     if (under2) list.push(anim(shadeOf(under2), [{ opacity: 0.7 }, { opacity: 0 }], { easing: 'ease-out' }));
     if (under1) list.push(anim(shadeOf(under1), [{ opacity: 0 }, { opacity: 0, offset: 0.5 }, { opacity: 0.45, offset: 0.9 }, { opacity: 0 }]));
     setBookShape(b);                                   // a closed book slides to the middle as it opens / closes
-    [front, back, under1, under2].forEach(fit);
+    if (FULL) { fitGroup([front, under1]); fitGroup([back, under2]); }   // old spread's pair, new spread's pair
+    else [front, back, under1, under2].forEach(fit);
     runAnims(list, function () { renderSpread(k); updateUI(); });
   }
 

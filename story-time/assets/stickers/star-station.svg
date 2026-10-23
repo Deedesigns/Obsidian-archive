@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img">
+<title>Star Station</title>
+<defs>
+  <radialGradient id="bg" cx="36%" cy="28%" r="78%">
+    <stop offset="0" stop-color="#3c3488"/>
+    <stop offset="0.55" stop-color="#1a1258"/>
+    <stop offset="1" stop-color="#0c0824"/>
+  </radialGradient>
+  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0" stop-color="#d5def3" stop-opacity="0.85"/>
+    <stop offset="1" stop-color="#d5def3" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="1.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
+<circle cx="64" cy="64" r="60" fill="url(#bg)"/>
+<circle cx="64" cy="68" r="34" fill="url(#glow)"/>
+<circle cx="22" cy="30" r="1.5" fill="#fff"/>
+<circle cx="104" cy="38" r="1.2" fill="#bff6ff"/>
+<circle cx="96" cy="102" r="1.3" fill="#ffe58a"/>
+<circle cx="30" cy="96" r="1.1" fill="#fff" opacity=".8"/>
+<g fill="none" stroke="#1a1038" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" filter="url(#soft)">
+
+<ellipse cx="64" cy="66" rx="40" ry="16" stroke="#d5def3" stroke-width="8"/>
+<ellipse cx="64" cy="66" rx="40" ry="16" stroke="#7af0ff" stroke-width="2"/>
+<circle cx="64" cy="66" r="12" fill="#f4f7ff"/>
+<rect x="58" y="60" width="4" height="5" rx="1" fill="#3ad7ff" stroke="none"/>
+<rect x="66" y="60" width="4" height="5" rx="1" fill="#ffc53d" stroke="none"/>
+<rect x="62" y="68" width="4" height="5" rx="1" fill="#ff8ad4" stroke="none"/>
+<circle cx="28" cy="58" r="3" fill="#ffc53d" stroke="none"/>
+
+</g>
+<circle cx="64" cy="64" r="58" fill="none" stroke="#ffd56a" stroke-width="4"/>
+<circle cx="64" cy="64" r="52.5" fill="none" stroke="#7af0ff" stroke-width="1.4" opacity=".75"/>
+</svg>

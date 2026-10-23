@@ -7,6 +7,8 @@ Scans stories/YYYY-MM-DD-slug/story.json and writes:
   * stories/index.json              list of all stories, newest first
   * stories/<folder>/index.html     the picture-book reader for each story
   * index.html                      home page: newest story big on top + library grid
+  * stickers.html                   sticker collection (stars and stickers live in the browser)
+  * rewards.html                    full-screen star and chest page after The End
 Only the standard library is needed. All links are relative, so the folder works on GitHub Pages as is.
 """
 import datetime, hashlib, html, json, re, sys
@@ -54,8 +56,12 @@ def load():
 def asset_version():
     """Short hash of the shared CSS/JS so browsers (and GitHub Pages caches) pick up reader changes right away."""
     h = hashlib.sha1()
-    for f in ('assets/style.css', 'assets/reader.js', 'assets/sky.js'):
+    for f in ('assets/style.css', 'assets/reader.js', 'assets/sky.js',
+              'assets/rewards.css', 'assets/rewards.js', 'assets/stickers.js'):
         h.update((ROOT / f).read_bytes())
+    for f in sorted((ROOT / 'assets' / 'stickers').glob('*.svg')):
+        h.update(f.name.encode())
+        h.update(f.read_bytes())
     return h.hexdigest()[:8]
 
 
@@ -78,6 +84,7 @@ HEAD = '''<!doctype html>
 <title>{title}</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
 <link rel="stylesheet" href="{css}?v={v}">
+{extra}
 </head>'''
 
 
@@ -85,8 +92,11 @@ def reader_html(s):
     data = {k: s[k] for k in ('title', 'date', 'cover', 'pages') if k in s}
     if s.get('end'):
         data['end'] = s['end']
+    if s.get('layout'):
+        data['layout'] = s['layout']
     blob = json.dumps(data, ensure_ascii=False).replace('</', '<\\/')
-    return HEAD.format(v=V, theme='#2c2a5a', title=e(s['title']) + ' · ' + SITE_NAME, css='../../assets/style.css') + f'''
+    return HEAD.format(v=V, theme='#2c2a5a', title=e(s['title']) + ' · ' + SITE_NAME, css='../../assets/style.css',
+                       extra=f'<link rel="stylesheet" href="../../assets/rewards.css?v={V}">') + f'''
 <body class="reader">
 <div class="sky" aria-hidden="true"></div>
 <header class="bar">
@@ -103,6 +113,8 @@ def reader_html(s):
 <div class="trail" id="trail" role="progressbar" aria-label="Adventure progress" aria-valuemin="0"></div>
 <script id="story" type="application/json">{blob}</script>
 <script src="../../assets/sky.js?v={V}"></script>
+<script src="../../assets/stickers.js?v={V}"></script>
+<script src="../../assets/rewards.js?v={V}"></script>
 <script src="../../assets/reader.js?v={V}"></script>
 </body></html>
 '''
@@ -152,12 +164,46 @@ def home_html(stories):
 var iso=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
 b.textContent=b.dataset.date===iso?"🌙 Tonight's Adventure":"🌙 Newest Adventure";})();
 </script>'''
-    return HEAD.format(v=V, theme='#bfe6ff', title=SITE_NAME, css='assets/style.css') + f'''
+    return HEAD.format(v=V, theme='#bfe6ff', title=SITE_NAME, css='assets/style.css',
+                       extra=f'<link rel="stylesheet" href="assets/rewards.css?v={V}">') + f'''
 <body class="home"><div class="sky" aria-hidden="true"></div><div class="wrap">
 <header class="hero">{EMBLEM}<h1>{SITE_NAME.upper()}</h1><p>A brand-new adventure every night!</p></header>
+<a class="sticker-cta btn blue" data-fly-target href="stickers.html"><span class="sticker-cta-mark" aria-hidden="true">✦</span> My Stickers<span class="star-pip" id="star-pip" hidden></span></a>
 {body}
 <p class="foot">{len(stories)} {'adventure' if len(stories) == 1 else 'adventures'} so far · a new one every day</p>
-</div><script src="assets/sky.js?v={V}"></script>{script}</body></html>
+</div><script src="assets/sky.js?v={V}"></script>
+<script src="assets/stickers.js?v={V}"></script>
+<script src="assets/rewards.js?v={V}"></script>{script}</body></html>
+'''
+
+
+def rewards_html():
+    return HEAD.format(v=V, theme='#070b24', title='Your star · ' + SITE_NAME, css='assets/style.css',
+                       extra=f'<link rel="stylesheet" href="assets/rewards.css?v={V}">') + f'''
+<body class="reward-page"><div class="sky" aria-hidden="true"></div>
+<main id="reward-root"></main>
+<script src="assets/sky.js?v={V}"></script>
+<script src="assets/stickers.js?v={V}"></script>
+<script src="assets/rewards.js?v={V}"></script>
+</body></html>
+'''
+
+
+def collection_html():
+    return HEAD.format(v=V, theme='#bfe6ff', title='Sticker Stars · ' + SITE_NAME, css='assets/style.css',
+                       extra=f'<link rel="stylesheet" href="assets/rewards.css?v={V}">') + f'''
+<body class="home stickers-page"><div class="sky" aria-hidden="true"></div><div class="wrap">
+<!-- Grown-ups: press and hold the title for 3 seconds, then confirm, to reset stars and stickers on this device. -->
+<p class="stickers-nav"><a class="back-link" href="index.html">🏠 Stories</a></p>
+<h1 id="sticker-title">Sticker Stars</h1>
+<p class="stickers-lead" id="sticker-lead">Your space stickers</p>
+<div id="sticker-grid"></div>
+<p class="foot"><a class="back-text" href="index.html">Back to stories</a></p>
+</div>
+<script src="assets/sky.js?v={V}"></script>
+<script src="assets/stickers.js?v={V}"></script>
+<script src="assets/rewards.js?v={V}"></script>
+</body></html>
 '''
 
 
@@ -165,11 +211,31 @@ def main():
     stories, problems = load()
     for s in stories:
         (STORIES / s['folder'] / 'index.html').write_text(reader_html(s))
-    index = [{'folder': s['folder'], 'title': s['title'], 'date': s['date'], 'summary': s.get('summary', ''),
-              'cover': f"stories/{s['folder']}/{s['cover']['image']}", 'pages': len(s['pages']),
-              'url': f"stories/{s['folder']}/index.html"} for s in stories]
+    # Keep catalog fields (type, genre, style) that story.json or the previous index already carried.
+    prior = {}
+    index_path = STORIES / 'index.json'
+    if index_path.exists():
+        try:
+            for row in json.loads(index_path.read_text()):
+                if isinstance(row, dict) and row.get('folder'):
+                    prior[row['folder']] = row
+        except json.JSONDecodeError:
+            prior = {}
+    index = []
+    for s in stories:
+        row = {'folder': s['folder'], 'title': s['title'], 'date': s['date'], 'summary': s.get('summary', ''),
+               'cover': f"stories/{s['folder']}/{s['cover']['image']}", 'pages': len(s['pages']),
+               'url': f"stories/{s['folder']}/index.html"}
+        old = prior.get(s['folder'], {})
+        for k in ('type', 'genre', 'style'):
+            val = s.get(k) or old.get(k)
+            if val:
+                row[k] = val
+        index.append(row)
     (STORIES / 'index.json').write_text(json.dumps(index, indent=2, ensure_ascii=False) + '\n')
     (ROOT / 'index.html').write_text(home_html(stories))
+    (ROOT / 'stickers.html').write_text(collection_html())
+    (ROOT / 'rewards.html').write_text(rewards_html())
     (ROOT / '.nojekyll').touch()
     print(f'built {len(stories)} stories')
     for p in problems:

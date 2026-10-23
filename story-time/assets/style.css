@@ -248,12 +248,24 @@ a{color:inherit}
     width:44px;height:44px;font-size:1.25rem;
     box-shadow:inset 0 2px 0 rgba(255,255,255,.45),0 4px 0 #a8320f,0 0 16px rgba(255,122,26,.6)}
   .play:active{transform:translateY(3px)}
-  /* The trail stays in the layout. Side arrows float, so the spread keeps this size
-     whether the other controls are showing or hidden. */
-  .stage,.spread .stage{margin:max(8px,env(safe-area-inset-top,0px)) calc(env(safe-area-inset-right,0px) + 16px) 8px calc(env(safe-area-inset-left,0px) + 16px)}
+  /* The open book's gold frame sits the same small distance from the left, right, and top
+     edges (the frame is drawn 7px outside the page box). The rocket trail keeps the bottom.
+     These margins do not change when the other controls fade in. */
+  .stage,.spread .stage{
+    margin:21px 21px 8px 21px;
+    margin:calc(env(safe-area-inset-top,0px) + 21px) calc(env(safe-area-inset-right,0px) + 21px) 8px calc(env(safe-area-inset-left,0px) + 21px)}
   .trail{height:18px;margin:0 auto 4px;margin-bottom:max(4px,env(safe-area-inset-bottom,0px));width:min(520px,72%)}
   .trail .rocket{font-size:1.2rem}.trail .goal{font-size:1.05rem;right:-20px}
   .trail .stop{width:8px;height:8px;margin:-4px 0 0 -4px}
+}
+/* Phone held upright: the header floats, so the page's own frame has the same gap
+   on the left, right, and top. Arrows and the trail stay in the flow underneath. */
+@media (orientation:portrait) and (max-width:520px){
+  .reader > .bar{position:absolute;top:0;left:0;right:0;z-index:9;pointer-events:none;
+    padding:max(4px,env(safe-area-inset-top,0px)) max(8px,env(safe-area-inset-right,0px)) 0 max(8px,env(safe-area-inset-left,0px))}
+  .reader > .bar .icon-btn,.reader > .bar .mode{pointer-events:auto}
+  .stage{margin:14px 14px 4px 14px;
+    margin:calc(env(safe-area-inset-top,0px) + 14px) calc(env(safe-area-inset-right,0px) + 14px) 4px calc(env(safe-area-inset-left,0px) + 14px)}
 }
 /* Story chrome (not the rocket trail) fades away until the reader touches the screen.
    Opacity only: the book must not change size when the controls appear. Hidden controls

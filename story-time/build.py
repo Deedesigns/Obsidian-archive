@@ -7,7 +7,8 @@ Scans stories/YYYY-MM-DD-slug/story.json and writes:
   * stories/index.json              list of all stories, newest first
   * stories/<folder>/index.html     the picture-book reader for each story
   * index.html                      home page: newest story big on top + library grid
-  * stickers.html                  sticker collection (stars and stickers live in the browser)
+  * stickers.html                   sticker collection (stars and stickers live in the browser)
+  * rewards.html                    full-screen star and chest page after The End
 Only the standard library is needed. All links are relative, so the folder works on GitHub Pages as is.
 """
 import datetime, hashlib, html, json, re, sys
@@ -165,13 +166,24 @@ b.textContent=b.dataset.date===iso?"🌙 Tonight's Adventure":"🌙 Newest Adven
                        extra=f'<link rel="stylesheet" href="assets/rewards.css?v={V}">') + f'''
 <body class="home"><div class="sky" aria-hidden="true"></div><div class="wrap">
 <header class="hero">{EMBLEM}<h1>{SITE_NAME.upper()}</h1><p>A brand-new adventure every night!</p></header>
-<section class="rewards-band" id="rewards-home" aria-label="Star rewards"></section>
-<a class="sticker-cta btn blue" data-fly-target href="stickers.html"><span class="sticker-cta-mark" aria-hidden="true">✦</span> My Stickers</a>
+<a class="sticker-cta btn blue" data-fly-target href="stickers.html"><span class="sticker-cta-mark" aria-hidden="true">✦</span> My Stickers<span class="star-pip" id="star-pip" hidden></span></a>
 {body}
 <p class="foot">{len(stories)} {'adventure' if len(stories) == 1 else 'adventures'} so far · a new one every day</p>
 </div><script src="assets/sky.js?v={V}"></script>
 <script src="assets/stickers.js?v={V}"></script>
 <script src="assets/rewards.js?v={V}"></script>{script}</body></html>
+'''
+
+
+def rewards_html():
+    return HEAD.format(v=V, theme='#070b24', title='Your star · ' + SITE_NAME, css='assets/style.css',
+                       extra=f'<link rel="stylesheet" href="assets/rewards.css?v={V}">') + f'''
+<body class="reward-page"><div class="sky" aria-hidden="true"></div>
+<main id="reward-root"></main>
+<script src="assets/sky.js?v={V}"></script>
+<script src="assets/stickers.js?v={V}"></script>
+<script src="assets/rewards.js?v={V}"></script>
+</body></html>
 '''
 
 
@@ -221,6 +233,7 @@ def main():
     (STORIES / 'index.json').write_text(json.dumps(index, indent=2, ensure_ascii=False) + '\n')
     (ROOT / 'index.html').write_text(home_html(stories))
     (ROOT / 'stickers.html').write_text(collection_html())
+    (ROOT / 'rewards.html').write_text(rewards_html())
     (ROOT / '.nojekyll').touch()
     print(f'built {len(stories)} stories')
     for p in problems:

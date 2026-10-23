@@ -242,3 +242,57 @@ a.corner-stickers.btn:focus-visible{outline:3px solid #fff;outline-offset:4px}
   .hsp,.hsp:active,a.corner-stickers.btn,a.corner-stickers.btn:active{transition:none !important}
 }
 @keyframes hsp-fade{from{opacity:0}to{opacity:1}}
+
+/* Short sideways phones: the stacked shield + title is taller than the screen,
+   so the star card was half off the first view. Lay the shield beside the title,
+   tighten the tagline, and keep the corner button in its own lane.
+   Portrait is outside this query, so it stays as it is.
+   Safe-area padding is on the page, not added again on the button. */
+@media (orientation:landscape) and (max-height:500px){
+  body.home:not(.stickers-page) .wrap{
+    padding-top:max(8px, env(safe-area-inset-top, 0px));
+    padding-right:max(12px, env(safe-area-inset-right, 0px));
+    padding-left:max(12px, env(safe-area-inset-left, 0px));
+    padding-bottom:max(8px, env(safe-area-inset-bottom, 0px));
+  }
+  body.home:not(.stickers-page) .hero{
+    display:grid;
+    grid-template-columns:1fr auto minmax(0,max-content) 1fr;
+    grid-template-areas:". mark title ." ". mark tag .";
+    align-items:center;
+    column-gap:12px;
+    row-gap:0;
+    width:100%;
+    margin:0 0 8px;
+    padding:0 88px 0 0;
+    text-align:left;
+  }
+  body.home:not(.stickers-page) .emblem{
+    grid-area:mark;
+    width:80px;
+    justify-self:end;
+  }
+  body.home:not(.stickers-page) .hero h1{
+    grid-area:title;
+    justify-self:start;
+    align-self:end;
+    margin:0;
+    font-size:clamp(2rem,5vw,2.6rem);
+    line-height:.9;
+    letter-spacing:1px;
+    -webkit-text-stroke-width:1.5px;
+    text-shadow:0 4px 0 #c4500d,0 7px 0 #6e2405,0 0 18px rgba(255,170,40,.7);
+  }
+  body.home:not(.stickers-page) .hero p{
+    grid-area:tag;
+    justify-self:start;
+    align-self:start;
+    margin:8px 0 0;
+    font-size:clamp(.95rem,2vw,1.12rem);
+    line-height:1.15;
+  }
+  body.home:not(.stickers-page) a.corner-stickers.btn{
+    top:2px;
+    right:4px;
+  }
+}

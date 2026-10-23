@@ -80,7 +80,12 @@
     }
     box.innerHTML = html;
   }
-  function celebrate(root) { var b = root && root.querySelector('.page.end .burst'); if (b) burst(b); }
+  function celebrate(root) {
+    var b = root && root.querySelector('.page.end .burst');
+    if (b) burst(b);
+    // Stars and stickers live in rewards.js so this reader stays easy to merge.
+    if (window.StoryRewards && root) window.StoryRewards.onBookEnd(root);
+  }
 
   function preload(i) {
     if (i < 1 || i > N) return;

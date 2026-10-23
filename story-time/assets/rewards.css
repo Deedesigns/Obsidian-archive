@@ -1,0 +1,200 @@
+/* Star rewards, treasure chest, and sticker book. Kept out of style.css so reader layout merges stay small. */
+
+.rewards-band{
+  position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:6px;
+  margin:2px auto 12px}
+a.sticker-cta.btn{
+  position:relative;z-index:1;display:flex;width:min(100%,440px);margin:0 auto 18px;
+  min-height:76px;font-size:clamp(1.45rem,5vw,1.95rem)}
+.sticker-cta-mark{
+  display:inline-grid;place-items:center;width:1.35em;height:1.35em;border-radius:50%;
+  background:rgba(255,255,255,.28);font-size:.95em}
+
+.star-meter{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  background:rgba(10,12,40,.5);border:3px solid rgba(255,213,106,.9);border-radius:999px;
+  padding:7px 14px 7px 10px;box-shadow:0 0 22px rgba(255,197,61,.28)}
+.star{width:clamp(36px,11vw,52px);height:clamp(36px,11vw,52px);display:block;flex:none}
+.star svg{display:block;width:100%;height:100%}
+.star polygon{fill:transparent;stroke:#b7c6ff;stroke-width:3;stroke-linejoin:round}
+.star.on polygon{fill:#ffc53d;stroke:#fff6d0}
+.star.on{filter:drop-shadow(0 0 6px rgba(255,197,61,.95))}
+.star.is-new{animation:star-pop .7s cubic-bezier(.3,1.5,.4,1) both}
+@keyframes star-pop{
+  0%{transform:scale(.25) rotate(-18deg)}
+  55%{transform:scale(1.22) rotate(6deg)}
+  100%{transform:scale(1) rotate(0)}}
+.star-meter.extra{animation:meter-pulse .8s ease}
+@keyframes meter-pulse{
+  0%,100%{transform:scale(1)}
+  40%{transform:scale(1.06)}}
+.star-count{
+  font-family:var(--chunky);font-size:clamp(1.35rem,5vw,1.8rem);color:#ffe58a;
+  min-width:2.6em;text-align:center;text-shadow:0 0 10px rgba(255,197,61,.7)}
+.star-note{
+  margin:0;font-family:var(--chunky);font-size:1.15rem;color:#bfefff;
+  text-shadow:0 0 10px rgba(58,215,255,.45);text-align:center}
+.star-note:empty{display:none}
+
+.chest-btn{
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+  width:172px;height:158px;padding:0;border:0;background:transparent;cursor:pointer;color:#fff8e7;
+  animation:chest-wiggle 2.8s ease-in-out infinite;
+  filter:drop-shadow(0 0 10px rgba(255,213,106,.8)) drop-shadow(0 0 18px rgba(58,215,255,.4))}
+.chest-btn:focus-visible{outline:3px solid #fff;outline-offset:4px;border-radius:24px}
+.chest-svg{width:100%;height:auto;overflow:visible;display:block}
+.chest-lid{transform-box:fill-box;transform-origin:50% 100%;transition:transform .7s cubic-bezier(.2,1.15,.3,1)}
+.chest-btn.is-open{animation:none;transform:none}
+.chest-btn.is-open .chest-lid{transform:translateY(-8px) rotate(-62deg)}
+.chest-aura{transform-box:fill-box;transform-origin:center;animation:chest-glow 3.2s ease-in-out infinite}
+@keyframes chest-wiggle{0%,100%{transform:rotate(-2.4deg)}50%{transform:rotate(2.4deg)}}
+@keyframes chest-glow{0%,100%{opacity:.35}50%{opacity:.8}}
+.chest-word{
+  font-family:var(--chunky);font-size:1.45rem;letter-spacing:.4px;line-height:1;margin-top:-8px;
+  color:#ffe58a;text-shadow:0 2px 0 #6a3408,0 0 10px rgba(255,197,61,.85)}
+
+.rewards-end{
+  width:min(100%,440px);display:flex;flex-direction:column;align-items:center;gap:6px;
+  margin-top:8px;position:relative;z-index:5}
+.sticker-pocket{
+  display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.2em .9em;
+  border-radius:999px;text-decoration:none;font-family:var(--chunky);font-size:1.05rem;color:#e8f7ff;
+  background:rgba(16,24,72,.55);border:2px solid rgba(122,240,255,.6)}
+.pocket-ping{animation:pocket-ping .6s ease}
+@keyframes pocket-ping{40%{transform:scale(1.08)}}
+
+/* The End already fills the page. Tuck the reward in without covering the buttons. */
+.page.end:not(.half):has(.rewards-end) .moon{font-size:clamp(2.1rem,7vw,3.2rem)}
+.page.end:not(.half):has(.rewards-end) h1{font-size:clamp(2.5rem,10vw,4.4rem)}
+.page.end:not(.half):has(.rewards-end) .dream{font-size:clamp(1.1rem,3.6vw,1.6rem)}
+.page.end:not(.half):has(.rewards-end) .btns{margin-top:12px;gap:10px}
+.page.end:not(.half):has(.rewards-end) .btn{min-height:56px;font-size:1.15rem}
+.page.end:not(.half):has(.chest-btn) .moon{font-size:1.8rem}
+.page.end:not(.half):has(.chest-btn) h1{font-size:clamp(2.1rem,9vw,3.4rem)}
+.page.end:not(.half):has(.chest-btn) .chest-btn{width:136px;height:124px}
+.page.end:not(.half):has(.chest-btn) .chest-word{font-size:1.2rem}
+
+.half.end:has(.rewards-end) .moon{font-size:clamp(16px,7cqh,32px)}
+.half.end:has(.rewards-end) h1{font-size:clamp(24px,11cqh,44px);margin:0}
+.half.end:has(.rewards-end) .dream{font-size:clamp(12px,4.5cqh,16px)}
+.half.end:has(.rewards-end) .btns{margin-top:3px;gap:6px}
+.half.end:has(.rewards-end) .btn{min-height:32px;font-size:13px;padding:.12em .45em}
+.half .rewards-end{gap:2px;margin-top:2px;width:100%}
+.half .star{width:20px;height:20px}
+.half .star-meter{gap:3px;padding:2px 7px;border-width:2px}
+.half .star-count{font-size:.9rem}
+.half .star-note{font-size:11px}
+.half .chest-btn{width:min(100%,148px);height:58px}
+.half .chest-word{font-size:12px;margin-top:-4px}
+.half .sticker-pocket{min-height:28px;font-size:12px;padding:.05em .55em}
+
+.pop-layer{
+  position:fixed;inset:0;z-index:80;
+  background:radial-gradient(circle at 50% 38%,rgba(48,36,110,.12),rgba(5,6,20,.3) 72%)}
+body.reader > .pop-layer,body.home > .pop-layer{position:fixed;z-index:80}
+.pop-sticker{
+  position:fixed;z-index:81;transform:translate(-50%,-50%);text-align:center;pointer-events:none}
+.sparkles{position:absolute;left:50%;top:42%;width:0;height:0;pointer-events:none}
+.sparkles i{
+  position:absolute;width:8px;height:8px;margin:-4px;border-radius:50%;background:#ffe58a;
+  box-shadow:0 0 8px #fff;opacity:0;animation:spark 1.15s ease-out forwards}
+.sparkles i:nth-child(odd){background:#bff6ff;border-radius:2px;width:7px;height:7px}
+@keyframes spark{
+  0%{opacity:0;transform:scale(.3)}
+  25%{opacity:.9}
+  100%{opacity:0;transform:translate(var(--x),var(--y)) scale(1)}}
+.sparkles i:nth-child(1){--x:-46px;--y:-36px;animation-delay:.02s}
+.sparkles i:nth-child(2){--x:48px;--y:-28px;animation-delay:.08s}
+.sparkles i:nth-child(3){--x:-58px;--y:10px;animation-delay:.12s}
+.sparkles i:nth-child(4){--x:60px;--y:16px;animation-delay:.05s}
+.sparkles i:nth-child(5){--x:-20px;--y:-52px;animation-delay:.16s}
+.sparkles i:nth-child(6){--x:18px;--y:-56px;animation-delay:.1s}
+.sparkles i:nth-child(7){--x:-36px;--y:36px;animation-delay:.18s}
+.sparkles i:nth-child(8){--x:34px;--y:40px;animation-delay:.14s}
+.pop-sticker img{
+  display:block;margin:0 auto;
+  filter:drop-shadow(0 0 12px rgba(255,214,120,.85)) drop-shadow(0 8px 14px rgba(0,0,0,.35));
+  animation:sticker-pop .55s cubic-bezier(.2,1.35,.35,1) both}
+@keyframes sticker-pop{
+  0%{transform:translateY(28px) scale(.18);opacity:0}
+  100%{transform:none;opacity:1}}
+.pop-name{
+  margin:.1em 0 0;font-family:var(--hero);font-weight:400;letter-spacing:.5px;
+  font-size:clamp(1.7rem,6vw,2.5rem);line-height:1;color:#ffe58a;
+  -webkit-text-stroke:1.5px #7a3300;paint-order:stroke fill;
+  text-shadow:0 3px 0 #a8420c,0 0 16px rgba(255,197,61,.75)}
+.pop-shiny,.pop-done{
+  margin:.15em 0 0;font-family:var(--chunky);color:#bfefff;font-size:1.15rem;
+  text-shadow:0 0 10px rgba(58,215,255,.6)}
+.pop-yay{pointer-events:auto;margin-top:12px;min-width:168px;min-height:72px}
+
+/* ---------- Sticker collection ---------- */
+.stickers-page .wrap{padding-bottom:max(28px,env(safe-area-inset-bottom))}
+.stickers-nav{margin:0 0 4px}
+.back-link{
+  display:inline-flex;align-items:center;gap:.35em;min-height:56px;padding:0 16px;border-radius:18px;
+  text-decoration:none;font-family:var(--chunky);font-size:1.3rem;color:#fff;
+  background:linear-gradient(180deg,#3a44b8,#252a86);
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.3),0 5px 0 #11135a}
+.back-link:active{transform:translateY(4px);box-shadow:inset 0 2px 0 rgba(255,255,255,.3),0 1px 0 #11135a}
+.stickers-page h1{
+  margin:.15em 0 .1em;text-align:center;font-family:var(--hero);font-weight:400;letter-spacing:1px;
+  font-size:clamp(2.1rem,8vw,4rem);line-height:.95;color:var(--gold);
+  -webkit-text-stroke:2px #8a3a00;paint-order:stroke fill;
+  text-shadow:0 4px 0 #c4500d,0 0 24px rgba(255,170,40,.45);
+  user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:manipulation;
+  padding:6px 8px}
+.stickers-lead{
+  margin:0 0 14px;text-align:center;font-family:var(--chunky);font-size:clamp(1.05rem,3vw,1.3rem);color:#bfefff}
+.collect-top{display:flex;flex-direction:column;align-items:center;gap:4px;margin-bottom:12px}
+.collect-chest{display:flex;justify-content:center}
+.all-found{
+  text-align:center;font-family:var(--chunky);color:#ffe58a;font-size:clamp(1.15rem,3vw,1.4rem);
+  margin:0 0 12px;text-shadow:0 0 12px rgba(255,197,61,.5)}
+.sticker-grid-inner{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:12px}
+.sticker-slot{
+  position:relative;display:flex;flex-direction:column;align-items:center;
+  background:rgba(8,10,36,.5);border:3px solid rgba(255,213,106,.28);border-radius:20px;padding:6px 6px 8px}
+.sticker-slot.mystery{border-style:dashed;border-color:rgba(158,176,230,.5);background:rgba(8,10,36,.28)}
+.sticker-hit,.mystery-face{
+  width:100%;aspect-ratio:1;border:0;background:transparent;padding:0;border-radius:14px;color:inherit}
+.mystery-face{display:grid;place-items:center;background:radial-gradient(circle at 40% 32%,rgba(70,80,150,.4),rgba(8,10,30,.15))}
+.mystery-face span{font-family:var(--hero);font-size:2.1rem;color:#8ea0d4;line-height:1}
+.sticker-slot img{width:100%;height:auto;display:block;transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+.sticker-slot.boop img{transform:translateY(-8px) scale(1.06)}
+.sticker-slot.mystery.boop{background:rgba(255,255,255,.08)}
+.sticker-slot.just-got{animation:star-pop .55s cubic-bezier(.3,1.5,.4,1)}
+.sticker-slot.shiny{
+  border-style:solid;border-color:#ffd56a;
+  box-shadow:0 0 0 2px rgba(255,213,106,.35),0 0 16px rgba(255,197,61,.45);
+  background:radial-gradient(circle at 50% 28%,rgba(255,214,120,.22),rgba(12,10,40,.4))}
+.shiny-tag{
+  position:absolute;top:8px;right:8px;font-family:var(--chunky);font-size:.72rem;letter-spacing:.3px;
+  color:#3a2300;background:linear-gradient(#ffe58a,#ffc53d);border-radius:999px;padding:.12em .45em}
+.cap{
+  min-height:2.3em;margin-top:2px;text-align:center;font-family:var(--chunky);font-size:.92rem;
+  line-height:1.15;color:#e4ecff}
+.sticker-slot:focus-within{outline:3px solid #fff;outline-offset:2px}
+.back-text{color:#bfefff}
+
+@media (orientation:landscape) and (max-height:520px){
+  .stickers-page .wrap{padding-top:6px;padding-bottom:8px}
+  .stickers-nav{margin:0}
+  .back-link{min-height:40px;font-size:1rem;padding:0 12px}
+  .stickers-page h1{font-size:1.35rem;margin:0;padding:2px 0}
+  .stickers-lead{margin:0 0 4px;font-size:.85rem}
+  .collect-top{margin-bottom:4px;gap:0}
+  .collect-top .star{width:26px;height:26px}
+  .collect-top .star-meter{padding:2px 8px;border-width:2px;gap:4px}
+  .collect-top .star-count{font-size:1rem}
+  .collect-top .star-note{display:none}
+  .sticker-grid-inner{grid-template-columns:repeat(8,minmax(0,1fr));gap:6px}
+  .sticker-slot{border-radius:14px;padding:3px 3px 4px;border-width:2px}
+  .cap{font-size:.68rem;min-height:1.5em;margin-top:0}
+  .mystery-face span{font-size:1.4rem}
+  .shiny-tag{font-size:.62rem;top:4px;right:4px}
+}
+@media (max-width:360px){
+  .sticker-grid-inner{grid-template-columns:repeat(auto-fill,minmax(92px,1fr))}
+}

@@ -45,6 +45,11 @@
       "seconds": 154.45,
       "sha256": "ff72bcfcd9f4fc37d6c082073d47c3ceb4bba3896db8f53a37a5cc6851838e4d"
     },
+    "nabataeans-petra": {
+      "bytes": 5442703,
+      "seconds": 544.15,
+      "sha256": "fd52330eb50de7826043ae59fca4f238202e6b49d9fd7116fb9556e01a35c916"
+    },
     "nag-hammadi-library": {
       "bytes": 3947273,
       "seconds": 394.61,

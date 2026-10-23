@@ -5,6 +5,7 @@
   'use strict';
   var story = JSON.parse(document.getElementById('story').textContent);
   var stage = document.getElementById('stage');
+  var bar = document.querySelector('.bar');
   var btnPrev = document.getElementById('prev'), btnNext = document.getElementById('next');
   var btnPlay = document.getElementById('play'), btnMode = document.getElementById('mode');
   var trail = document.getElementById('trail');
@@ -123,6 +124,7 @@
     for (var s = 0; s < stops.length; s++) stops[s].classList.toggle('on', s <= cur);
     trail.setAttribute('aria-valuenow', cur);
     markReading();
+    syncChromePin();
   }
   // glow on the page that is being read aloud (open-book mode)
   function markReading() {
@@ -405,6 +407,7 @@
     else if (x < 0.25) turn(-1);
   });
   document.addEventListener('keydown', function (e) {
+    revealChrome();                                   // before Tab moves focus, so the controls can be reached
     if (e.key === 'ArrowRight') turn(1);
     else if (e.key === 'ArrowLeft') turn(-1);
     else if (e.key === ' ') { e.preventDefault(); btnPlay.click(); }
@@ -424,6 +427,60 @@
   var rz = null;
   window.addEventListener('resize', function () { clearTimeout(rz); rz = setTimeout(onLayoutChange, 120); });
 
+  // Header, arrows, and the play button fade out while reading. The rocket trail stays.
+  // A touch, click, mouse move, or key brings them back for a few seconds.
+  var CHROME_MS = 3000, chromeTimer = null, wasEnd = false;
+  function endShowing() { return spreadMode ? spreadOf(cur) === KMAX : cur === LAST; }
+  function chromeNodes() { return [bar, btnPrev, btnNext, btnPlay, btnMode]; }
+  function chromeFocused() {
+    var a = document.activeElement;
+    if (!a || a === document.body || a === document.documentElement) return false;
+    var nodes = chromeNodes();
+    for (var i = 0; i < nodes.length; i++) if (nodes[i] && (nodes[i] === a || nodes[i].contains(a))) return true;
+    return false;
+  }
+  function setChromeQuiet(quiet) {
+    document.body.classList.toggle('chrome-quiet', quiet);
+    var nodes = chromeNodes();
+    for (var i = 0; i < nodes.length; i++) {
+      if (!nodes[i]) continue;
+      if (quiet) { nodes[i].setAttribute('inert', ''); nodes[i].setAttribute('aria-hidden', 'true'); }
+      else { nodes[i].removeAttribute('inert'); nodes[i].removeAttribute('aria-hidden'); }
+    }
+  }
+  function hideChrome() {
+    chromeTimer = null;
+    if (endShowing()) { setChromeQuiet(false); return; }
+    // A tap focuses the arrow. Drop that focus so the controls can leave after 3 quiet seconds
+    // without staying stuck open, and so an inert button does not keep the keyboard.
+    if (chromeFocused() && document.activeElement && document.activeElement.blur) document.activeElement.blur();
+    setChromeQuiet(true);
+  }
+  function revealChrome() {
+    if (endShowing()) {
+      if (chromeTimer) { clearTimeout(chromeTimer); chromeTimer = null; }
+      setChromeQuiet(false);
+      return;
+    }
+    setChromeQuiet(false);
+    if (chromeTimer) clearTimeout(chromeTimer);
+    chromeTimer = setTimeout(hideChrome, CHROME_MS);
+  }
+  function syncChromePin() {
+    var end = endShowing();
+    if (end) {
+      if (chromeTimer) { clearTimeout(chromeTimer); chromeTimer = null; }
+      setChromeQuiet(false);
+    } else if (wasEnd) revealChrome();
+    wasEnd = end;
+  }
+  document.addEventListener('pointerdown', revealChrome);
+  document.addEventListener('mousemove', revealChrome);
+  document.addEventListener('focusin', function (e) {
+    var nodes = chromeNodes();
+    for (var i = 0; i < nodes.length; i++) if (nodes[i] && (nodes[i] === e.target || nodes[i].contains(e.target))) { revealChrome(); return; }
+  });
+
   trail.innerHTML = '<div class="path"></div><div class="done"></div>' +
     Array.apply(null, Array(LAST + 1)).map(function (_, k) { return '<i class="stop" style="left:' + (k / LAST * 100) + '%"></i>'; }).join('') +
     '<span class="goal">\ud83c\udf19</span><span class="rocket">\ud83d\ude80</span>';
@@ -432,11 +489,13 @@
   cur = Math.min(Math.max(start, 0), LAST);
   render();
   preload(1);
+  revealChrome();                                    // show the controls briefly so a kid can find them
 
   // read-only hooks for automated tests
   window.__reader = { state: function () {
     return { cur: cur, spread: spreadMode ? spreadOf(cur) : null, spreadMode: spreadMode, busy: busy, playing: playing,
       started: started, readToMe: readToMe, src: audio.getAttribute('src'), time: audio.currentTime,
+      chromeHidden: document.body.classList.contains('chrome-quiet'),
       shown: Array.prototype.map.call(stage.querySelectorAll('.page'), function (p) { return p.getAttribute('data-i'); }) };
-  } };
+  }, revealChrome: revealChrome };
 })();

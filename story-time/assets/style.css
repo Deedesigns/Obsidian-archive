@@ -92,14 +92,14 @@ a{color:inherit}
 /* ---------- Reader ---------- */
 .reader{height:100%;overflow:hidden;display:flex;flex-direction:column;user-select:none;-webkit-user-select:none;touch-action:pan-y}
 .reader > *:not(.sky){position:relative;z-index:1}
-.bar{display:flex;align-items:center;gap:10px;padding:10px clamp(10px,2vw,20px)}
+.bar{display:flex;align-items:center;gap:10px;padding:10px clamp(10px,2vw,20px);transition:opacity .35s ease}
 .icon-btn{width:56px;height:56px;border-radius:18px;border:0;font-size:1.7rem;display:grid;place-items:center;flex:none;text-decoration:none;
-  background:linear-gradient(180deg,#3a44b8,#252a86);box-shadow:inset 0 2px 0 rgba(255,255,255,.3),0 5px 0 #11135a;transition:transform .08s,box-shadow .08s}
+  background:linear-gradient(180deg,#3a44b8,#252a86);box-shadow:inset 0 2px 0 rgba(255,255,255,.3),0 5px 0 #11135a;transition:transform .08s,box-shadow .08s,opacity .35s ease}
 .icon-btn:active{transform:translateY(4px);box-shadow:inset 0 2px 0 rgba(255,255,255,.3),0 1px 0 #11135a}
 .bar .title{flex:1;font-family:var(--chunky);font-size:clamp(1.05rem,2.6vw,1.45rem);letter-spacing:.4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   text-align:center;color:var(--gold2);text-shadow:0 0 12px rgba(255,197,61,.5)}
 .mode{display:flex;align-items:center;gap:8px;border:0;border-radius:18px;color:#fff;padding:6px 14px 6px 8px;font-family:var(--chunky);font-size:1.1rem;min-height:56px;flex:none;
-  background:linear-gradient(180deg,#3a44b8,#252a86);box-shadow:inset 0 2px 0 rgba(255,255,255,.3),0 5px 0 #11135a;transition:transform .08s,box-shadow .08s}
+  background:linear-gradient(180deg,#3a44b8,#252a86);box-shadow:inset 0 2px 0 rgba(255,255,255,.3),0 5px 0 #11135a;transition:transform .08s,box-shadow .08s,opacity .35s ease}
 .mode:active{transform:translateY(4px);box-shadow:inset 0 2px 0 rgba(255,255,255,.3),0 1px 0 #11135a}
 .mode .sw{width:54px;height:32px;border-radius:999px;background:#0d1040;position:relative;transition:background .2s;box-shadow:inset 0 2px 4px rgba(0,0,0,.5)}
 .mode .sw::after{content:'';position:absolute;top:3px;left:3px;width:26px;height:26px;border-radius:50%;background:#fff;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
@@ -202,12 +202,12 @@ a{color:inherit}
 .controls{display:flex;align-items:center;justify-content:center;gap:clamp(18px,6vw,60px);padding:14px 10px 6px}
 .nav{width:74px;height:74px;border-radius:24px;border:0;font-size:2.3rem;color:#fff;display:grid;place-items:center;
   background:linear-gradient(180deg,#4fe0ff,#1b7cff);box-shadow:inset 0 3px 0 rgba(255,255,255,.45),0 7px 0 #0d47a8,0 10px 22px rgba(58,215,255,.4);
-  transition:transform .08s,box-shadow .08s}
+  transition:transform .08s,box-shadow .08s,opacity .35s ease}
 .nav:disabled{opacity:.3;filter:grayscale(.6)}
 .nav:active:not(:disabled){transform:translateY(5px);box-shadow:inset 0 3px 0 rgba(255,255,255,.45),0 2px 0 #0d47a8,0 4px 10px rgba(58,215,255,.4)}
 .play{width:94px;height:94px;border-radius:50%;border:0;color:#fff;font-size:2.6rem;display:grid;place-items:center;
   background:radial-gradient(circle at 35% 30%,#ffb067,var(--fire) 50%,var(--fire2));
-  box-shadow:inset 0 3px 0 rgba(255,255,255,.45),0 7px 0 #a8320f,0 0 30px rgba(255,122,26,.6);transition:transform .08s,box-shadow .08s}
+  box-shadow:inset 0 3px 0 rgba(255,255,255,.45),0 7px 0 #a8320f,0 0 30px rgba(255,122,26,.6);transition:transform .08s,box-shadow .08s,opacity .35s ease}
 .play:active{transform:translateY(5px);box-shadow:inset 0 3px 0 rgba(255,255,255,.45),0 2px 0 #a8320f,0 0 18px rgba(255,122,26,.6)}
 .play[hidden]{display:none}
 
@@ -222,25 +222,61 @@ a{color:inherit}
 .trail .goal{position:absolute;right:-30px;top:50%;transform:translateY(-50%);font-size:1.6rem;filter:drop-shadow(0 0 8px rgba(255,214,90,.8))}
 .trail .rocket{position:absolute;top:50%;left:0;font-size:1.9rem;transform:translate(-50%,-55%) rotate(45deg);transition:left .7s cubic-bezier(.4,0,.2,1);
   filter:drop-shadow(0 0 8px rgba(255,122,26,.9))}
-/* phone turned sideways: the book gets almost the whole screen, buttons move to the sides */
+/* Phone turned sideways: the open book fills the visible screen.
+   Header buttons and the progress trail float over a thin edge of sky so they stay
+   tappable without carving a big hole out of the spread. 100svh is the fallback
+   when 100dvh is unsupported; 100dvh tracks the mobile toolbar as it shows and hides.
+   Safe-area insets keep the book and the buttons off the notch and the home indicator. */
 @media (orientation:landscape) and (max-height:520px){
-  .bar{padding:4px max(10px,env(safe-area-inset-right)) 0 max(10px,env(safe-area-inset-left))}
+  html:has(body.reader),body.reader{height:100svh;height:100dvh;overflow:hidden}
+  .reader > .bar{position:absolute;top:0;left:0;right:0;z-index:9;justify-content:space-between;pointer-events:none;
+    padding:max(4px,env(safe-area-inset-top,0px)) max(8px,env(safe-area-inset-right,0px)) 0 max(8px,env(safe-area-inset-left,0px))}
+  .reader > .bar .icon-btn,.reader > .bar .mode{pointer-events:auto}
   .icon-btn,.mode{height:44px;min-height:44px}.icon-btn{width:44px;font-size:1.4rem;border-radius:14px}
-  .mode{font-size:1rem;border-radius:14px}.mode .sw{width:46px;height:28px}.mode .sw::after{width:22px;height:22px}
+  .mode{font-size:1rem;border-radius:14px;padding:6px 10px}.mode .lbl{display:none}
+  .mode .sw{width:46px;height:28px}.mode .sw::after{width:22px;height:22px}
   .mode[aria-pressed=true] .sw::after{transform:translateX(18px)}
-  .bar .title{margin-left:52px;font-size:clamp(.95rem,2.4vw,1.25rem)}
+  .bar .title{position:absolute;left:50%;top:max(6px,env(safe-area-inset-top,0px));transform:translateX(-50%);
+    flex:none;width:max-content;max-width:min(46%,420px);margin:0;padding:3px 12px 4px;line-height:1.15;
+    font-size:clamp(.85rem,2vw,1.1rem);pointer-events:none;
+    background:rgba(7,11,36,.72);border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.35)}
   .controls{display:contents}
-  .nav{position:fixed;top:calc(50% + 14px);transform:translateY(-50%);z-index:8;width:50px;height:64px;font-size:1.7rem;border-radius:16px}
+  .nav{position:fixed;top:calc(50% - 6px);transform:translateY(-50%);z-index:8;width:48px;height:60px;font-size:1.7rem;border-radius:16px}
   .nav:active:not(:disabled){transform:translateY(calc(-50% + 4px))}
-  #prev{left:max(6px,env(safe-area-inset-left))}#next{right:max(6px,env(safe-area-inset-right))}
-  .play{position:fixed;z-index:8;top:4px;left:calc(max(10px,env(safe-area-inset-left)) + 52px);width:44px;height:44px;font-size:1.25rem;
+  #prev{left:max(6px,env(safe-area-inset-left,0px))}#next{right:max(6px,env(safe-area-inset-right,0px))}
+  .play{position:fixed;z-index:8;top:max(4px,env(safe-area-inset-top,0px));left:calc(max(8px,env(safe-area-inset-left,0px)) + 50px);
+    width:44px;height:44px;font-size:1.25rem;
     box-shadow:inset 0 2px 0 rgba(255,255,255,.45),0 4px 0 #a8320f,0 0 16px rgba(255,122,26,.6)}
   .play:active{transform:translateY(3px)}
-  .stage,.spread .stage{margin:12px calc(max(6px,env(safe-area-inset-right)) + 62px) 4px calc(max(6px,env(safe-area-inset-left)) + 62px)}
-  .trail{height:20px;margin:2px auto max(7px,env(safe-area-inset-bottom));width:min(420px,56%)}
-  .trail .rocket{font-size:1.35rem}.trail .goal{font-size:1.15rem;right:-22px}
-  .trail .stop{width:9px;height:9px;margin:-4.5px 0 0 -4.5px}
+  /* The open book's gold frame sits the same small distance from the left, right, and top
+     edges (the frame is drawn 7px outside the page box). The rocket trail keeps the bottom.
+     These margins do not change when the other controls fade in. */
+  .stage,.spread .stage{
+    margin:21px 21px 8px 21px;
+    margin:calc(env(safe-area-inset-top,0px) + 21px) calc(env(safe-area-inset-right,0px) + 21px) 8px calc(env(safe-area-inset-left,0px) + 21px)}
+  .trail{height:18px;margin:0 auto 4px;margin-bottom:max(4px,env(safe-area-inset-bottom,0px));width:min(520px,72%)}
+  .trail .rocket{font-size:1.2rem}.trail .goal{font-size:1.05rem;right:-20px}
+  .trail .stop{width:8px;height:8px;margin:-4px 0 0 -4px}
 }
+/* Phone held upright: the header floats, so the page's own frame has the same gap
+   on the left, right, and top. Arrows and the trail stay in the flow underneath. */
+@media (orientation:portrait) and (max-width:520px){
+  .reader > .bar{position:absolute;top:0;left:0;right:0;z-index:9;pointer-events:none;
+    padding:max(4px,env(safe-area-inset-top,0px)) max(8px,env(safe-area-inset-right,0px)) 0 max(8px,env(safe-area-inset-left,0px))}
+  .reader > .bar .icon-btn,.reader > .bar .mode{pointer-events:auto}
+  .stage{margin:14px 14px 4px 14px;
+    margin:calc(env(safe-area-inset-top,0px) + 14px) calc(env(safe-area-inset-right,0px) + 14px) 4px calc(env(safe-area-inset-left,0px) + 14px)}
+}
+/* Story chrome (not the rocket trail) fades away until the reader touches the screen.
+   Opacity only: the book must not change size when the controls appear. Hidden controls
+   are not hit targets, so a tap still reaches the page underneath. */
+body.reader.chrome-quiet .bar,
+body.reader.chrome-quiet .nav,
+body.reader.chrome-quiet .play{opacity:0}
+body.reader.chrome-quiet .bar,
+body.reader.chrome-quiet .bar *,
+body.reader.chrome-quiet .nav,
+body.reader.chrome-quiet .play{pointer-events:none}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}
   .half.reading .num::before{animation:none!important}

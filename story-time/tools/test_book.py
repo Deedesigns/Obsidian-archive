@@ -12,6 +12,8 @@ srv = http.server.ThreadingHTTPServer(('127.0.0.1', 0), functools.partial(Quiet,
 threading.Thread(target=srv.serve_forever, daemon=True).start()
 BASE = f'http://127.0.0.1:{srv.server_address[1]}/'
 story = json.loads((ROOT / 'stories/index.json').read_text())[0]
+book = json.loads((ROOT / 'stories' / story['folder'] / 'story.json').read_text())
+END = str(len(book['pages']) + 1)                 # 0 = cover, N+1 = The End
 URL = BASE + story['url']
 errors, fails = [], []
 def check(cond, msg):
@@ -33,6 +35,24 @@ LAYOUT = """() => { const vw = innerWidth, vh = innerHeight, bad = [];
     if (r.width && (r.right > vw + 1 || r.bottom > vh + 1 || r.left < -1 || r.top < -1)) bad.push('button off screen ' + b.className); });
   return bad; }"""
 state = lambda pg: pg.evaluate('window.__reader.state()')
+def show_controls(pg):
+    """Controls fade out after 3s. Bring them back before clicking one."""
+    pg.evaluate('window.__reader.revealChrome()')
+def chrome_info(pg):
+    return pg.evaluate("""() => {
+      const bar = document.querySelector('.bar'), next = document.getElementById('next');
+      const trail = document.querySelector('.trail'), play = document.getElementById('play');
+      const cs = getComputedStyle;
+      const r = next.getBoundingClientRect();
+      const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+      return {
+        barOpacity: cs(bar).opacity, nextOpacity: cs(next).opacity, nextPE: cs(next).pointerEvents,
+        nextInert: next.hasAttribute('inert'), barInert: bar.hasAttribute('inert'),
+        trailOpacity: cs(trail).opacity, trailInert: trail.hasAttribute('inert'),
+        playPE: cs(play).pointerEvents, hit: hit && (hit.id || hit.className || hit.tagName),
+        barFade: cs(bar).transitionDuration
+      };
+    }""")
 def wait_idle(pg, ms=3000):
     t = time.time()
     while state(pg)['busy'] and time.time() - t < ms / 1000: pg.wait_for_timeout(50)
@@ -68,11 +88,11 @@ with sync_playwright() as p:
             if lay: check(False, f'{label}: spread {n} layout {lay}')
         if label == '844x390':
             pg.goto(URL + '#p=5'); pg.reload(); pg.wait_for_load_state('networkidle'); pg.wait_for_timeout(300)
-            pg.click('#next'); pg.wait_for_timeout(60)
-            pg.keyboard.press('ArrowRight'); pg.evaluate("document.getElementById('next').click()")     # ignored mid-flip
+            show_controls(pg); pg.click('#next'); pg.wait_for_timeout(60)
+            pg.keyboard.press('ArrowRight'); show_controls(pg); pg.evaluate("document.getElementById('next').click()")     # ignored mid-flip
             print('    state right after extra input:', state(pg))
-            wait_idle(pg); pg.click('#prev'); wait_idle(pg)
-            pg.evaluate("document.getElementById('next').click()"); pg.wait_for_timeout(330); pg.screenshot(path=OUT / 'flip-mid-844x390.png')
+            wait_idle(pg); show_controls(pg); pg.click('#prev'); wait_idle(pg)
+            show_controls(pg); pg.evaluate("document.getElementById('next').click()"); pg.wait_for_timeout(330); pg.screenshot(path=OUT / 'flip-mid-844x390.png')
             wait_idle(pg); s = state(pg); check(s['shown'] == ['7', '8'] and s['cur'] == 7, f'flip forward lands on p07|p08, extra input ignored {s["shown"]} cur={s["cur"]}')
             pg.keyboard.press('ArrowLeft'); pg.wait_for_timeout(330); pg.screenshot(path=OUT / 'flip-back-mid-844x390.png')
             wait_idle(pg); s = state(pg); check(s['shown'] == ['5', '6'], f'flip back to p05|p06 {s["shown"]}')
@@ -84,8 +104,8 @@ with sync_playwright() as p:
             # to the end: closed back cover
             for _ in range(8):
                 if pg.is_disabled('#next'): break
-                pg.click('#next'); wait_idle(pg)
-            s = state(pg); check(s['shown'] == ['11'] and pg.is_disabled('#next'), f'last spread is The End {s["shown"]}')
+                show_controls(pg); pg.click('#next'); wait_idle(pg)
+            s = state(pg); check(s['shown'] == [END] and pg.is_disabled('#next'), f'last spread is The End {s["shown"]}')
             pg.wait_for_timeout(1300); pg.screenshot(path=OUT / 'spread-end-844x390.png')
             lay = [x for x in pg.evaluate(LAYOUT) if not x.startswith('font')]; check(not lay, f'end layout {lay}')
             pg.click('[data-act=again]'); wait_idle(pg); check(state(pg)['shown'] == ['0'], 'Read again goes back to the cover')
@@ -115,8 +135,15 @@ with sync_playwright() as p:
     # rotate mid-story: portrait keeps the page being read, landscape returns to its spread
     pg.set_viewport_size({'width': 390, 'height': 844}); pg.wait_for_timeout(400)
     s = state(pg); check(not s['spreadMode'] and s['shown'] == [str(s['cur'])], f'rotate to portrait keeps page {s["cur"]} {s["shown"]}')
-    pg.click('#play')  # pause
-    pg.click('#next'); wait_idle(pg); cur = state(pg)['cur']
+    t_audio, src_audio = s['time'] or 0, s['src']
+    pg.wait_for_timeout(700)
+    mid = state(pg)
+    progressed = mid['playing'] or mid['src'] != src_audio or (mid['time'] or 0) > t_audio + 0.05
+    pg.wait_for_timeout(2700)
+    s = state(pg)
+    check(progressed and s['chromeHidden'] and s['started'], f'narration keeps going while controls are hidden playing={mid["playing"]}->{s["playing"]} src={s["src"]}')
+    show_controls(pg); pg.click('#play')  # pause
+    show_controls(pg); pg.click('#next'); wait_idle(pg); cur = state(pg)['cur']
     pg.set_viewport_size({'width': 844, 'height': 390}); pg.wait_for_timeout(400)
     s = state(pg); check(s['spreadMode'] and str(cur) in s['shown'], f'rotate back to landscape shows the spread with page {cur}: {s["shown"]}')
     c.close()
@@ -127,11 +154,12 @@ with sync_playwright() as p:
     s = state(pg); check(not s['spreadMode'] and s['shown'] == ['0'], 'portrait: single cover page')
     pg.screenshot(path=OUT / 'portrait-cover.png')
     pg.click('[data-act=self]', force=True); wait_idle(pg)
-    for _ in range(4): pg.click('#next'); wait_idle(pg)
+    for _ in range(4):
+        show_controls(pg); pg.click('#next'); wait_idle(pg)
     s = state(pg); check(s['shown'] == ['5'] and not s['playing'], f'portrait: page 5 one page {s["shown"]}')
     lay = [x for x in pg.evaluate(LAYOUT) if not x.startswith('font')]; check(not lay, f'portrait layout {lay}')
     pg.screenshot(path=OUT / 'portrait-p05.png')
-    pg.click('#next'); pg.wait_for_timeout(330); pg.screenshot(path=OUT / 'portrait-flip-mid.png'); wait_idle(pg)
+    show_controls(pg); pg.click('#next'); pg.wait_for_timeout(330); pg.screenshot(path=OUT / 'portrait-flip-mid.png'); wait_idle(pg)
     check(state(pg)['shown'] == ['6'], 'portrait: turned to page 6')
     pg.mouse.click(360, 400); wait_idle(pg); check(state(pg)['shown'] == ['7'], 'portrait: tap right edge turns')
     c.close()
@@ -139,10 +167,46 @@ with sync_playwright() as p:
     # reduced motion: fade instead of flip
     c, pg = ctx('reduced', reduced_motion='reduce', **phone_l)
     pg.goto(URL + '#p=1'); pg.reload(); pg.wait_for_load_state('networkidle')
-    pg.click('#next'); pg.wait_for_timeout(100)
+    show_controls(pg); pg.click('#next'); pg.wait_for_timeout(100)
+    fade = pg.evaluate("getComputedStyle(document.querySelector('.bar')).transitionDuration")
+    check(fade in ('0s', '0.01s'), f'reduced motion: controls appear instantly ({fade})')
     n = pg.evaluate("document.querySelectorAll('.leaf').length"); check(n == 0, 'reduced motion: no 3D leaf, fades')
     wait_idle(pg); check(state(pg)['shown'] == ['3', '4'], 'reduced motion: spread changes')
     c.close()
+
+    # chrome fades, the rocket trail does not, and a tap both reveals and can turn
+    for label, opts in [('844x390', phone_l), ('390x844', phone_p)]:
+        c, pg = ctx('chrome-'+label, **opts)
+        pg.goto(URL + '#p=5'); pg.reload(); pg.wait_for_load_state('networkidle'); pg.wait_for_timeout(250)
+        check(not state(pg)['chromeHidden'], f'{label}: controls show briefly when a page opens')
+        info = chrome_info(pg); check(float(info['trailOpacity']) == 1 and not info['trailInert'], f'{label}: trail visible on open {info}')
+        pg.wait_for_timeout(3200)
+        s = state(pg); info = chrome_info(pg)
+        check(s['chromeHidden'] and s['shown'] == (['5', '6'] if label == '844x390' else ['5']), f'{label}: controls hide after 3s without turning {s["shown"]}')
+        check(info['nextOpacity'] == '0' and info['nextPE'] == 'none' and info['nextInert'] and info['hit'] != 'next', f'{label}: hidden arrow is not tappable {info}')
+        check(info['trailOpacity'] == '1' and not info['trailInert'], f'{label}: trail stays visible while chrome is hidden')
+        # a tap on the book turns the page and reveals the controls
+        box = pg.evaluate("""() => { const r = (document.querySelector('.book') || document.querySelector('.page')).getBoundingClientRect();
+          return {x: r.left + r.width * 0.8, y: r.top + r.height * 0.45}; }""")
+        pg.mouse.click(box['x'], box['y']); wait_idle(pg)
+        s = state(pg)
+        check(not s['chromeHidden'], f'{label}: tap reveals controls')
+        check(s['shown'] != (['5', '6'] if label == '844x390' else ['5']), f'{label}: that same tap still turns the page {s["shown"]}')
+        # first tap on a revealed arrow works and resets the clock
+        shown = s['shown']; show_controls(pg); pg.click('#prev'); wait_idle(pg)
+        check(state(pg)['shown'] != shown and not state(pg)['chromeHidden'], f'{label}: first tap on a revealed arrow works')
+        pg.wait_for_timeout(1800); pg.mouse.move(30, 30); pg.wait_for_timeout(1800)
+        check(not state(pg)['chromeHidden'], f'{label}: mouse move resets the 3s timer')
+        pg.wait_for_timeout(3200)
+        check(state(pg)['chromeHidden'], f'{label}: controls hide again after the mouse rests')
+        pg.keyboard.press('Tab')
+        check(not state(pg)['chromeHidden'], f'{label}: a key reveals controls for keyboard focus')
+        focused = pg.evaluate("document.activeElement && (document.activeElement.className || document.activeElement.id)")
+        check(focused not in ('', 'reader'), f'{label}: Tab reached a control ({focused})')
+        # The End keeps the controls out (the celebration is not auto-hidden)
+        pg.goto(URL + '#p=' + END); pg.reload(); pg.wait_for_load_state('networkidle'); pg.wait_for_timeout(3400)
+        check(not state(pg)['chromeHidden'] and END in state(pg)['shown'], f'{label}: end celebration keeps controls visible')
+        c.close()
     b.close()
 print('console errors:', errors or 'none')
 sys.exit(1 if errors or fails else 0)

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" font-family="Palatino Linotype, Palatino, Georgia, serif">
+  <title>Timeline of early Buddhism, about 700 BCE to 400 CE (approximate dates)</title>
+  <rect width="1200" height="500" fill="#0d1424"/>
+  <rect x="0.5" y="0.5" width="1199" height="499" fill="none" stroke="#c9a54a55"/>
+  <text x="600" y="40" text-anchor="middle" fill="#f1e6c8" font-size="24" letter-spacing="3">THE ORIGINS OF BUDDHISM · AN APPROXIMATE TIMELINE</text>
+  <text x="600" y="64" text-anchor="middle" fill="#8f8a7c" font-size="14" font-style="italic">The Buddha's dates are disputed; the three bars show competing estimates of his lifetime</text>
+  <rect x="135.6" y="180" width="78.5" height="20" fill="#c9a54a55" stroke="#e8c46a"/>
+  <text x="222.1" y="195" fill="#f1e6c8" font-size="13">Theravada tradition (623–543)</text>
+  <rect x="194.5" y="206" width="78.5" height="20" fill="#c9a54a40" stroke="#e8c46a"/>
+  <text x="281.1" y="221" fill="#f1e6c8" font-size="13">older Western view (c. 563–483)</text>
+  <rect x="272.1" y="232" width="78.5" height="20" fill="#c9a54a30" stroke="#e8c46a"/>
+  <text x="358.6" y="247" fill="#f1e6c8" font-size="13">many scholars since 1988 (c. 484–404)</text>
+  <rect x="649.1" y="232" width="392.7" height="20" fill="#8f8a7c22" stroke="#e8c46a" stroke-dasharray="5 4"/>
+  <text x="845.5" y="247" text-anchor="middle" fill="#f1e6c8" font-size="13">Gandharan birch-bark scrolls</text>
+  <line x1="60" y1="262" x2="1140" y2="262" stroke="#c9a54a"/>
+  <text x="60.0" y="279" text-anchor="middle" fill="#8f8a7c" font-size="11">700 BCE</text>
+  <text x="158.2" y="279" text-anchor="middle" fill="#8f8a7c" font-size="11">600 BCE</text>
+  <text x="256.4" y="279" text-anchor="middle" fill="#8f8a7c" font-size="11">500 BCE</text>
+  <text x="354.5" y="279" text-anchor="middle" fill="#8f8a7c" font-size="11">400 BCE</text>
+  <text x="452.7" y="279" text-anchor="middle" fill="#8f8a7c" font-size="11">300 BCE</text>
+  <text x="550.9" y="279" text-anchor="middle" fill="#8f8a7c" font-size="11">200 BCE</text>
+  <text x="649.1" y="279" text-anchor="middle" fill="#8f8a7c" font-size="11">100 BCE</text>
+  <text x="747.3" y="279" text-anchor="middle" fill="#8f8a7c" font-size="11">1 CE</text>
+  <text x="845.5" y="279" text-anchor="middle" fill="#8f8a7c" font-size="11">100 CE</text>
+  <text x="943.6" y="279" text-anchor="middle" fill="#8f8a7c" font-size="11">200 CE</text>
+  <text x="1041.8" y="279" text-anchor="middle" fill="#8f8a7c" font-size="11">300 CE</text>
+  <text x="1140.0" y="279" text-anchor="middle" fill="#8f8a7c" font-size="11">400 CE</text>
+  <g transform="translate(207.3,0)"><line y1="262" y2="302" stroke="#e8c46a"/><rect x="-5" y="302" width="10" height="10" transform="rotate(45 0 307)" fill="#e8c46a"/><text y="332" x="-10" text-anchor="start" fill="#e9e2cf" font-size="13">c. 6th century BCE timber shrine?</text><text y="350" x="-10" text-anchor="start" fill="#8f8a7c" font-size="12">postholes under Maya Devi Temple, Lumbini</text></g>
+  <g transform="translate(484.1,0)"><line y1="140" y2="262" stroke="#e8c46a" stroke-dasharray="2 3"/><rect x="-5" y="130" width="10" height="10" transform="rotate(45 0 135)" fill="#e8c46a"/><text y="118" x="0" text-anchor="middle" fill="#e9e2cf" font-size="13">c. 268 BCE Ashoka consecrated</text><text y="102" x="0" text-anchor="middle" fill="#8f8a7c" font-size="12">dated via Hellenistic kings in his edicts</text></g>
+  <g transform="translate(502.8,0)"><line y1="262" y2="372" stroke="#e8c46a"/><rect x="-5" y="372" width="10" height="10" transform="rotate(45 0 377)" fill="#e8c46a"/><text y="402" x="0" text-anchor="middle" fill="#e9e2cf" font-size="13">c. 249 BCE Lumbini pillar</text><text y="420" x="0" text-anchor="middle" fill="#8f8a7c" font-size="12">Ashoka: “the Buddha Shakyamuni was born here”</text></g>
+  <g transform="translate(698.2,0)"><line y1="140" y2="262" stroke="#e8c46a" stroke-dasharray="2 3"/><rect x="-5" y="130" width="10" height="10" transform="rotate(45 0 135)" fill="#e8c46a"/><text y="118" x="0" text-anchor="middle" fill="#e9e2cf" font-size="13">1st century BCE</text><text y="102" x="0" text-anchor="middle" fill="#8f8a7c" font-size="12">Pali scriptures written down in Sri Lanka</text></g>
+  <g transform="translate(1090.9,0)"><line y1="262" y2="302" stroke="#e8c46a"/><rect x="-5" y="302" width="10" height="10" transform="rotate(45 0 307)" fill="#e8c46a"/><text y="332" x="10" text-anchor="end" fill="#e9e2cf" font-size="13">soon after 350 CE Dipavamsa</text><text y="350" x="10" text-anchor="end" fill="#8f8a7c" font-size="12">oldest Sri Lankan chronicle</text></g>
+  <text x="15" y="490" text-anchor="start" fill="#8f8a7c" font-size="11" font-style="italic">Diagram: Obsidian Archive</text>
+</svg>

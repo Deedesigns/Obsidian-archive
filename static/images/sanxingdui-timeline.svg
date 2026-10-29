@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540" font-family="Palatino Linotype, Palatino, Georgia, serif">
+  <title>Timeline of Sanxingdui and the ancient Shu culture, about 2700 to 316 BCE (approximate dates)</title>
+  <rect width="1200" height="540" fill="#0d1424"/>
+  <rect x="0.5" y="0.5" width="1199" height="539" fill="none" stroke="#c9a54a55"/>
+  <text x="600" y="40" text-anchor="middle" fill="#f1e6c8" font-size="24" letter-spacing="3">SANXINGDUI AND ANCIENT SHU · AN APPROXIMATE TIMELINE</text>
+  <text x="600" y="64" text-anchor="middle" fill="#8f8a7c" font-size="14" font-style="italic">All dates BCE and approximate; the phases of the site are still being refined</text>
+  <rect x="120.8" y="110" width="407.8" height="26" fill="#7a6a9a55"/>
+  <text x="324.7" y="128.0" text-anchor="middle" fill="#f1e6c8" font-size="14">Early settlement (Baodun-related phase)</text>
+  <rect x="528.6" y="150" width="224.3" height="30" fill="#c9a54a55" stroke="#e8c46a"/>
+  <text x="640.8" y="170.0" text-anchor="middle" fill="#f1e6c8" font-size="14">Sanxingdui culture</text>
+  <rect x="732.5" y="194" width="224.3" height="26" fill="#4a7ec955"/>
+  <text x="844.7" y="212.0" text-anchor="middle" fill="#f1e6c8" font-size="14">Jinsha, Chengdu (c. 1200–650)</text>
+  <rect x="569.4" y="236" width="225.9" height="26" fill="#c96a4a66"/>
+  <text x="682.4" y="254.0" text-anchor="middle" fill="#f1e6c8" font-size="14">Shang dynasty in the Central Plains</text>
+  <rect x="956.9" y="194" width="136.2" height="26" fill="#6a9a7a55"/>
+  <text x="1025.0" y="212.0" text-anchor="middle" fill="#f1e6c8" font-size="14">Later Shu kingdom</text>
+  <line x1="80" y1="320" x2="1120" y2="320" stroke="#8f8a7c"/>
+  <line x1="202.4" y1="314" x2="202.4" y2="326" stroke="#8f8a7c"/>
+  <text x="202.4" y="342" text-anchor="middle" fill="#8f8a7c" font-size="12">2500</text>
+  <line x1="406.3" y1="314" x2="406.3" y2="326" stroke="#8f8a7c"/>
+  <text x="406.3" y="342" text-anchor="middle" fill="#8f8a7c" font-size="12">2000</text>
+  <line x1="610.2" y1="314" x2="610.2" y2="326" stroke="#8f8a7c"/>
+  <text x="610.2" y="342" text-anchor="middle" fill="#8f8a7c" font-size="12">1500</text>
+  <line x1="1018.0" y1="314" x2="1018.0" y2="326" stroke="#8f8a7c"/>
+  <text x="1018.0" y="342" text-anchor="middle" fill="#8f8a7c" font-size="12">500</text>
+  <line x1="569.4" y1="290" x2="569.4" y2="367" stroke="#e8c46a" stroke-dasharray="2 3"/>
+  <circle cx="569.4" cy="320" r="5" fill="#e8c46a"/>
+  <text x="569.4" y="385" text-anchor="middle" fill="#e8c46a" font-size="14">c. 1600</text>
+  <text x="569.4" y="401" text-anchor="middle" fill="#d8d2c0" font-size="13">City walls rise (dates vary)</text>
+  <line x1="781.5" y1="290" x2="781.5" y2="367" stroke="#e8c46a" stroke-dasharray="2 3"/>
+  <circle cx="781.5" cy="320" r="5" fill="#e8c46a"/>
+  <text x="781.5" y="385" text-anchor="end" fill="#e8c46a" font-size="14">c. 1130–1010</text>
+  <text x="781.5" y="401" text-anchor="end" fill="#d8d2c0" font-size="13">Pits 1–4, 7 and 8 buried</text>
+  <line x1="814.1" y1="290" x2="814.1" y2="427" stroke="#e8c46a" stroke-dasharray="2 3"/>
+  <circle cx="814.1" cy="320" r="5" fill="#e8c46a"/>
+  <text x="814.1" y="445" text-anchor="start" fill="#e8c46a" font-size="14">c. 1000</text>
+  <text x="814.1" y="461" text-anchor="start" fill="#d8d2c0" font-size="13">Centre of Shu shifts to Jinsha</text>
+  <line x1="1093.1" y1="290" x2="1093.1" y2="367" stroke="#e8c46a" stroke-dasharray="2 3"/>
+  <circle cx="1093.1" cy="320" r="5" fill="#e8c46a"/>
+  <text x="1093.1" y="385" text-anchor="end" fill="#e8c46a" font-size="14">316</text>
+  <text x="1093.1" y="401" text-anchor="end" fill="#d8d2c0" font-size="13">Qin conquers Shu</text>
+  <text x="80" y="525" text-anchor="start" fill="#8f8a7c" font-size="11">Diagram: Obsidian Archive. Dates follow the Sichuan excavators (Antiquity 2023), Peking University radiocarbon results (2022–23) and the UNESCO tentative-list entry.</text>
+</svg>

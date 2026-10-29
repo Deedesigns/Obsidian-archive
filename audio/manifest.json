@@ -90,6 +90,11 @@
       "seconds": 167.61,
       "sha256": "6f51c73f0b040767abdd113ae80c4d6d769f214ccda2167295fcecb324274f69"
     },
+    "sanxingdui": {
+      "bytes": 4636542,
+      "seconds": 463.55,
+      "sha256": "edd91db9f45845ce61a63acee9d74f0955b600e7dbc95adeffa36c5b605a0c63"
+    },
     "shang-dynasty": {
       "bytes": 4732801,
       "seconds": 473.17,

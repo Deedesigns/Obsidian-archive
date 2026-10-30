@@ -1,0 +1,153 @@
+{
+  "title": "The Little Raccoon and Baby's First Halloween",
+  "date": "2026-10-30",
+  "layout": "fullbleed",
+  "summary": "On Baby's very first Halloween, a little raccoon big brother in a firefighter costume guides the way door to door, remembering please and thank you, waiting patiently, taking turns and sharing a treat Baby can eat, then heads home proud, loved and sleepy.",
+  "character": "the little raccoon, a small young raccoon with soft silver-grey fur, a black mask stripe across big round friendly eyes, a cream-white muzzle, small rounded ears, and a bushy tail with black and grey rings, wearing a bright red firefighter coat with yellow stripes and a small shiny red firefighter helmet",
+  "cover": {
+    "text": "The Little Raccoon and Baby's First Halloween.",
+    "image": "cover.webp",
+    "audio": "cover.mp3",
+    "scene": "Book cover: the little raccoon proudly pulls ONE little red wagon along a cozy neighborhood sidewalk at twilight; in the wagon sits Baby, giggling; friendly smiling jack-o'-lanterns on the steps of simple geometric houses, a big round mid-century moon, a few stars; Baby: ONE tiny chubby baby raccoon with soft silver-grey fur and a little black mask, dressed in a round orange pumpkin costume with a tiny green stem cap; cheerful and cozy, never scary"
+  },
+  "pages": [
+    {
+      "text": "On Halloween evening, a little raccoon zipped up his bright red firefighter coat and buckled on his shiny red helmet. \"I'm ready to trick-or-treat!\" he announced. From the hallway came a tiny squeal: \"Ba-ba-BOO!\" It was Baby, dressed as a round orange pumpkin, wiggling in the little red wagon. It was Baby's very first Halloween.",
+      "image": "p01.webp",
+      "audio": "p01.mp3",
+      "scene": "Inside a cozy simple living room, the little raccoon stands proudly with fists on hips in his costume, while Baby sits in ONE little red wagon beside him, squealing happily; low furniture, a small rug, a tiny jack-o'-lantern on the floor; Baby: ONE tiny chubby baby raccoon with soft silver-grey fur and a little black mask, dressed in a round orange pumpkin costume with a tiny green stem cap",
+      "background": "plain flat cream upper wall",
+      "safe": 0.469,
+      "sky": "#fbebca",
+      "textTone": "dark"
+    },
+    {
+      "text": "Mama Raccoon smiled. \"Raccoons are lucky,\" she said. \"We already wear masks!\" The little raccoon giggled and touched the black stripe across his eyes. Then Papa Raccoon knelt down. \"Big brother, will you be Baby's guide tonight?\" The little raccoon stood up very tall. \"I will!\"",
+      "image": "p02.webp",
+      "audio": "p02.mp3",
+      "scene": "In the cozy living room, Papa Raccoon kneels down to talk eye to eye with the little raccoon, who stands tall and proud; Mama Raccoon stands beside the ONE little red wagon where Baby sits, smiling; Mama Raccoon: ONE grown-up raccoon wearing a teal cardigan; Papa Raccoon: ONE grown-up raccoon wearing a mustard-yellow scarf; Baby: ONE tiny chubby baby raccoon with soft silver-grey fur and a little black mask, dressed in a round orange pumpkin costume with a tiny green stem cap",
+      "background": "plain flat cream upper wall",
+      "safe": 0.51,
+      "sky": "#fcedd1",
+      "textTone": "dark"
+    },
+    {
+      "text": "Outside, the moon was round and the street glowed with friendly jack-o'-lanterns. The little raccoon wanted to zoom from house to house like a speedy fire truck. But Baby's wagon went bumpity-bump, slow and steady. So he took a deep breath and walked right beside it, step by step. \"We're a team,\" he whispered.",
+      "image": "p03.webp",
+      "audio": "p03.mp3",
+      "scene": "A quiet neighborhood sidewalk at night: the little raccoon walks slowly beside ONE little red wagon where Baby sits, Mama and Papa Raccoon walking a little behind; low hedges and a row of small friendly smiling jack-o'-lanterns along the path; Baby: ONE tiny chubby baby raccoon with soft silver-grey fur and a little black mask, dressed in a round orange pumpkin costume with a tiny green stem cap; Mama Raccoon: ONE grown-up raccoon wearing a teal cardigan; Papa Raccoon: ONE grown-up raccoon wearing a mustard-yellow scarf",
+      "background": "smooth deep navy-blue Halloween night sky with a few tiny stars in the far corners",
+      "safe": 0.474,
+      "sky": "#022342",
+      "textTone": "light"
+    },
+    {
+      "text": "At the first door, a cheerful badger in a witch costume held out a bowl of candy. The little raccoon remembered his manners. \"Trick or treat, please!\" he said. Baby just stared with big round eyes. \"Now we say thank you,\" he explained gently. \"Thank you!\" he said, and Baby clapped two tiny paws. Clap, clap!",
+      "image": "p04.webp",
+      "audio": "p04.mp3",
+      "scene": "At a small front door with a glowing porch light, ONE cheerful badger in a witch costume (no tall hat) holds out a bowl of wrapped candy; the little raccoon holds out his candy bucket politely, Baby in ONE little red wagon beside him clapping; Baby: ONE tiny chubby baby raccoon with soft silver-grey fur and a little black mask, dressed in a round orange pumpkin costume with a tiny green stem cap",
+      "background": "smooth deep navy-blue Halloween night sky with a few tiny stars in the far corners",
+      "safe": 0.458,
+      "sky": "#09253d",
+      "textTone": "light"
+    },
+    {
+      "text": "At the next house, an old turtle opened the door very, very slowly. Creak. The little raccoon wanted to knock again, but he waited patiently, tapping his boots. \"Good things come to those who wait,\" Papa murmured. When the turtle finally appeared, she gave them each a shiny red apple and a friendly wink.",
+      "image": "p05.webp",
+      "audio": "p05.mp3",
+      "scene": "At a low round front door, ONE kind old turtle with tiny round glasses hands a shiny red apple to the little raccoon, who waits patiently; Papa Raccoon stands behind ONE little red wagon where Baby sits; Papa Raccoon: ONE grown-up raccoon wearing a mustard-yellow scarf; Baby: ONE tiny chubby baby raccoon with soft silver-grey fur and a little black mask, dressed in a round orange pumpkin costume with a tiny green stem cap",
+      "background": "smooth deep navy-blue Halloween night sky with a few tiny stars in the far corners",
+      "safe": 0.484,
+      "sky": "#09253d",
+      "textTone": "light"
+    },
+    {
+      "text": "Then they reached a house where a crowd of costumed friends waited on the steps: a bunny astronaut, a fox pirate, and a hedgehog dressed as a dragon. Everyone wanted to go first! The little raccoon stepped aside. \"You can go before us,\" he offered. \"Taking turns is fair.\" The hedgehog grinned. \"Next time, you go first!\"",
+      "image": "p06.webp",
+      "audio": "p06.mp3",
+      "scene": "On low front steps, ONE little bunny in an astronaut costume, ONE little fox in a pirate costume and ONE little hedgehog in a green dragon costume stand in a short line, smiling; the little raccoon steps aside kindly with one arm out to let them go first, Baby in ONE little red wagon beside him; Baby: ONE tiny chubby baby raccoon with soft silver-grey fur and a little black mask, dressed in a round orange pumpkin costume with a tiny green stem cap",
+      "background": "smooth deep navy-blue Halloween night sky with a few tiny stars in the far corners",
+      "safe": 0.495,
+      "sky": "#03213b",
+      "textTone": "light"
+    },
+    {
+      "text": "Baby's turn came at last. Baby reached into the big bowl, grabbed one candy, and dropped it. Plop! Baby grabbed another. Plop! The little raccoon laughed. \"Silly Baby, the candy goes in the bucket, not on the doormat!\" He helped Baby's tiny paw find the pumpkin bucket. Plink! Everyone cheered.",
+      "image": "p07.webp",
+      "audio": "p07.mp3",
+      "scene": "On a doormat in front of a door, the little raccoon gently guides Baby's tiny paw to drop a candy into a small orange pumpkin bucket; a few wrapped candies scattered on the doormat, a big candy bowl held low by ONE smiling grandma mouse; Baby sits in ONE little red wagon; Baby: ONE tiny chubby baby raccoon with soft silver-grey fur and a little black mask, dressed in a round orange pumpkin costume with a tiny green stem cap",
+      "background": "smooth deep navy-blue Halloween night sky with a few tiny stars in the far corners",
+      "safe": 0.464,
+      "sky": "#08243b",
+      "textTone": "light"
+    },
+    {
+      "text": "Soon the little raccoon's bucket was heavy and full. But when he peeked into Baby's bucket, he frowned. \"Baby can't eat chewy candy or crunchy lollipops yet,\" he said. \"Baby doesn't have enough teeth!\" Mama nodded. \"What could Baby enjoy instead?\" The little raccoon thought and thought.",
+      "image": "p08.webp",
+      "audio": "p08.mp3",
+      "scene": "On the sidewalk, the little raccoon peers thoughtfully into Baby's small pumpkin bucket full of wrapped candy and lollipops, one paw on his chin; Mama Raccoon kneels beside ONE little red wagon where Baby sits; Mama Raccoon: ONE grown-up raccoon wearing a teal cardigan; Baby: ONE tiny chubby baby raccoon with soft silver-grey fur and a little black mask, dressed in a round orange pumpkin costume with a tiny green stem cap",
+      "background": "smooth deep navy-blue Halloween night sky with a few tiny stars in the far corners",
+      "safe": 0.49,
+      "sky": "#062137",
+      "textTone": "light"
+    },
+    {
+      "text": "Then he remembered the soft, sweet banana tucked in his pocket for a snack. \"Baby, this is for you!\" He peeled it carefully and broke off a tiny piece. Baby munched and smacked and squealed with delight. A soft banana was the very best treat of all.",
+      "image": "p09.webp",
+      "audio": "p09.mp3",
+      "scene": "The little raccoon happily holds out a small piece of peeled yellow banana to Baby, who munches it with a huge delighted smile while sitting in ONE little red wagon; Mama Raccoon claps nearby; Mama Raccoon: ONE grown-up raccoon wearing a teal cardigan; Baby: ONE tiny chubby baby raccoon with soft silver-grey fur and a little black mask, dressed in a round orange pumpkin costume with a tiny green stem cap",
+      "background": "smooth deep navy-blue Halloween night sky with a few tiny stars in the far corners",
+      "safe": 0.464,
+      "sky": "#03233c",
+      "textTone": "light"
+    },
+    {
+      "text": "On the way home, Mama and Papa kept cooing over Baby. \"Look at those chubby cheeks!\" For a moment, the little raccoon felt invisible, like a ghost. He kicked a crunchy leaf. Then Papa gave him a big hug. \"And look at our brave firefighter, the best big brother in the whole neighborhood!\"",
+      "image": "p10.webp",
+      "audio": "p10.mp3",
+      "scene": "On the sidewalk with fallen autumn leaves, Papa Raccoon kneels and gives the little raccoon a big warm hug; the little raccoon smiles with surprise; Mama Raccoon stands smiling by ONE little red wagon where Baby sits; Mama Raccoon: ONE grown-up raccoon wearing a teal cardigan; Papa Raccoon: ONE grown-up raccoon wearing a mustard-yellow scarf; Baby: ONE tiny chubby baby raccoon with soft silver-grey fur and a little black mask, dressed in a round orange pumpkin costume with a tiny green stem cap",
+      "background": "smooth deep navy-blue Halloween night sky with a few tiny stars in the far corners",
+      "safe": 0.49,
+      "sky": "#092139",
+      "textTone": "light"
+    },
+    {
+      "text": "Soon Baby yawned a huge, wobbly yawn. \"I think Baby is sleepy,\" said the little raccoon. \"May I pull the wagon the rest of the way?\" Mama smiled. \"That would be very helpful, thank you.\" So he pulled, gently and slowly, past the glowing pumpkins, all the way home.",
+      "image": "p11.webp",
+      "audio": "p11.mp3",
+      "scene": "The little raccoon carefully pulls ONE little red wagon by its handle along the sidewalk toward a small cozy house with warm glowing windows; Baby yawns sleepily inside the wagon; Mama and Papa Raccoon walk behind holding paws; small friendly jack-o'-lanterns along the path; Mama Raccoon: ONE grown-up raccoon wearing a teal cardigan; Papa Raccoon: ONE grown-up raccoon wearing a mustard-yellow scarf; Baby: ONE tiny chubby baby raccoon with soft silver-grey fur and a little black mask, dressed in a round orange pumpkin costume with a tiny green stem cap",
+      "background": "smooth deep navy-blue Halloween night sky with a few tiny stars in the far corners",
+      "safe": 0.469,
+      "sky": "#052742",
+      "textTone": "light"
+    },
+    {
+      "text": "At home, everyone traded costumes for cozy pajamas. The little raccoon counted his candy, one, two, three, all the way to twenty. Baby snuggled in Mama's lap and nibbled the last bit of banana. \"Did Baby like Halloween?\" he asked. Baby gave him a sticky, sleepy smile. That meant yes.",
+      "image": "p12.webp",
+      "audio": "p12.mp3",
+      "scene": "In a cozy living room, the little raccoon (now in blue striped pajamas, no helmet, no coat) sits on a rug counting a small pile of wrapped candy; Mama Raccoon sits on a low sofa with Baby (now in a tiny pale-yellow sleeper, not the pumpkin costume) snuggled in her lap smiling; Mama Raccoon: ONE grown-up raccoon wearing a teal cardigan",
+      "background": "plain flat warm cream upper wall",
+      "safe": 0.516,
+      "sky": "#fbedcf",
+      "textTone": "dark"
+    },
+    {
+      "text": "At bedtime, Papa tucked the little raccoon under his blanket. \"You were gentle, patient, and kind tonight,\" Papa whispered. \"We are so proud of you.\" The little raccoon felt warm all the way to the tip of his striped tail. Across the room, Baby was already dreaming. \"Happy first Halloween, Baby,\" he whispered, and closed his eyes.",
+      "image": "p13.webp",
+      "audio": "p13.mp3",
+      "scene": "A calm dim bedroom at night: the little raccoon (in blue striped pajamas, no helmet) lies in a low bed under a patchwork blanket with eyes closing, smiling; Papa Raccoon sits on the edge of the bed tucking him in; across the room Baby sleeps in a small crib; a tiny jack-o'-lantern night light on the floor; Papa Raccoon: ONE grown-up raccoon wearing a mustard-yellow scarf",
+      "background": "plain flat deep navy upper wall of a dark bedroom",
+      "safe": 0.479,
+      "sky": "#082744",
+      "textTone": "light"
+    }
+  ],
+  "end": {
+    "text": "The end. Sweet dreams!",
+    "audio": "end.mp3"
+  },
+  "type": "manners story",
+  "genre": "fiction",
+  "theme": "Halloween big-brother manners story",
+  "style": "bold flat mid-century graphic (1950s-60s modern picture-book look: simple geometric shapes, flat bold colors in a limited palette of tangerine orange, teal, mustard yellow, cream, red and deep navy, crisp clean edges, subtle dry-brush and halftone print texture; no gradients, no shading, not CGI, not watercolor)"
+}

@@ -95,6 +95,11 @@
       "seconds": 167.61,
       "sha256": "6f51c73f0b040767abdd113ae80c4d6d769f214ccda2167295fcecb324274f69"
     },
+    "phoenicians": {
+      "bytes": 5028222,
+      "seconds": 502.71,
+      "sha256": "216341ed9c444e393ec42dbb53c13b5bf31e110d26771c10137d1a4e66306583"
+    },
     "sanxingdui": {
       "bytes": 4636542,
       "seconds": 463.55,

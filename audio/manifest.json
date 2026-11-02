@@ -115,6 +115,11 @@
       "seconds": 185.97,
       "sha256": "32c3fd49ade45c623bedeb6fc22e230e64eda1549dfeb14b6b2deabec9a5a7f2"
     },
+    "tiwanaku": {
+      "bytes": 5379585,
+      "seconds": 537.86,
+      "sha256": "f5b2ddfa3853b79c8725d127811b41eba0d56484025cf7372fa48908c4e4e4b3"
+    },
     "ugarit-gods-of-canaan": {
       "bytes": 4133725,
       "seconds": 413.27,

@@ -1,0 +1,221 @@
+{
+  "title": "The Lion and the Mouse",
+  "date": "2026-11-02",
+  "layout": "fullbleed",
+  "summary": "A proud lion laughs when a tiny mouse promises to help him someday, but when he is caught in a rope net, the little mouse gnaws him free and shows that no act of kindness is ever too small.",
+  "character": "the little mouse, ONE tiny gray-brown field mouse much smaller than the lion’s paw, with big round ears lined in pink, shiny black bead eyes, a pale cream belly, a pink nose with fine whiskers and a long thin pink tail",
+  "textInPictures": true,
+  "cover": {
+    "text": "The Lion and the Mouse.",
+    "image": "cover.webp",
+    "audio": "cover.mp3",
+    "scene": "the lion lying regally in the golden grass of the savanna at golden hour, with the little mouse standing proudly on his big front paw; they look at each other and smile; flat-topped acacia trees and a soft glowing sky behind them; warm, friendly, epic. Other characters: the lion, ONE big proud adult male lion with a soft golden-honey coat, a huge fluffy russet-orange mane, kind amber eyes, a pale cream muzzle, a dark brown nose and a dark brown tuft at the tip of his tail. This cover has NO title and NO words anywhere"
+  },
+  "pages": [
+    {
+      "text": "",
+      "spokenText": "Far across the golden savanna, where the tall grass swayed and the acacia trees stood wide, lived a mighty lion.",
+      "scene": "a wide golden savanna landscape; the lion, small in the scene, stands proudly on a low grassy rise in tall golden grass; a few flat-topped acacia trees low on the horizon; tiny far-off zebras and a giraffe; the little mouse is not in this picture. Other characters: the lion, ONE big proud adult male lion with a soft golden-honey coat, a huge fluffy russet-orange mane, kind amber eyes, a pale cream muzzle, a dark brown nose and a dark brown tuft at the tip of his tail",
+      "background": "calm pale golden-peach morning sky",
+      "image": "p01.webp",
+      "audio": "p01.mp3",
+      "safe": 0.333,
+      "sky": "#fad38a",
+      "textTone": "dark"
+    },
+    {
+      "text": "",
+      "spokenText": "Every morning, he climbed his big flat rock and gave a roar so loud that all the zebras jumped.",
+      "scene": "the lion standing on a big flat gray rock low in the picture, head lifted, mouth open in a proud mighty roar with eyes squeezed shut (proud and funny, not scary); below him in the golden grass three small zebras hop in surprise; the little mouse is not in this picture. Other characters: the lion, ONE big proud adult male lion with a soft golden-honey coat, a huge fluffy russet-orange mane, kind amber eyes, a pale cream muzzle, a dark brown nose and a dark brown tuft at the tip of his tail",
+      "background": "calm clear pale blue sky",
+      "image": "p02.webp",
+      "audio": "p02.mp3",
+      "safe": 0.344,
+      "sky": "#8accf9",
+      "textTone": "dark"
+    },
+    {
+      "text": "",
+      "spokenText": "One sleepy afternoon, the lion napped in the warm shade, with his great golden mane spread out like sunshine.",
+      "scene": "the lion fast asleep, stretched out in the golden grass in the soft shade beside a low boulder, mane spread out wide, a peaceful smile, tail curled; dragonflies; the little mouse is not in this picture. Other characters: the lion, ONE big proud adult male lion with a soft golden-honey coat, a huge fluffy russet-orange mane, kind amber eyes, a pale cream muzzle, a dark brown nose and a dark brown tuft at the tip of his tail",
+      "background": "calm warm cream afternoon sky",
+      "image": "p03.webp",
+      "audio": "p03.mp3",
+      "safe": 0.458,
+      "sky": "#fbebbf",
+      "textTone": "dark"
+    },
+    {
+      "text": "",
+      "spokenText": "Nearby, a tiny mouse hurried home with a seed. Pitter, patter, oops! She ran right across his nose.",
+      "scene": "close-up low in the picture: the lion asleep with his big head resting on his paws, and the little mouse scurrying right across the top of his nose holding a seed in her front paws, a surprised little face; golden grass around. Other characters: the lion, ONE big proud adult male lion with a soft golden-honey coat, a huge fluffy russet-orange mane, kind amber eyes, a pale cream muzzle, a dark brown nose and a dark brown tuft at the tip of his tail",
+      "background": "calm soft golden afternoon sky",
+      "image": "p04.webp",
+      "audio": "p04.mp3",
+      "safe": 0.286,
+      "sky": "#f8cf70",
+      "textTone": "dark"
+    },
+    {
+      "text": "",
+      "spokenText": "The lion woke with a snort and trapped the mouse under one enormous paw. “Who dares to wake me?”",
+      "scene": "the lion now awake, lying in the grass with one huge paw gently pinning down the tip of the little mouse’s tail so she can’t run (she is not hurt, peeking up wide-eyed); the lion’s head tilted, one eyebrow raised, curious and grumpy but not scary. Other characters: the lion, ONE big proud adult male lion with a soft golden-honey coat, a huge fluffy russet-orange mane, kind amber eyes, a pale cream muzzle, a dark brown nose and a dark brown tuft at the tip of his tail",
+      "background": "calm soft golden afternoon sky",
+      "image": "p05.webp",
+      "audio": "p05.mp3",
+      "safe": 0.255,
+      "sky": "#f7d072",
+      "textTone": "dark"
+    },
+    {
+      "text": "",
+      "spokenText": "“Please let me go, great lion,” squeaked the mouse. “Someday, maybe I can help you too!”",
+      "scene": "the little mouse standing up on her hind legs in front of the lion’s big face, tiny paws pressed together pleading, looking up; the lion lying down, looking down at her with his huge amber eyes, close to the ground. Other characters: the lion, ONE big proud adult male lion with a soft golden-honey coat, a huge fluffy russet-orange mane, kind amber eyes, a pale cream muzzle, a dark brown nose and a dark brown tuft at the tip of his tail",
+      "background": "calm soft golden afternoon sky",
+      "image": "p06.webp",
+      "audio": "p06.mp3",
+      "safe": 0.25,
+      "sky": "#f7d06d",
+      "textTone": "dark"
+    },
+    {
+      "text": "",
+      "spokenText": "The lion laughed a big, rumbly laugh. “A tiny thing like you, help me? Off you go, little one.”",
+      "scene": "the lion lying in the grass laughing a big jolly laugh with his head tipped back and eyes crinkled, a big paw on his belly; the little mouse looking up at him, hopeful. Other characters: the lion, ONE big proud adult male lion with a soft golden-honey coat, a huge fluffy russet-orange mane, kind amber eyes, a pale cream muzzle, a dark brown nose and a dark brown tuft at the tip of his tail",
+      "background": "calm soft golden afternoon sky",
+      "image": "p07.webp",
+      "audio": "p07.mp3",
+      "safe": 0.385,
+      "sky": "#f8d074",
+      "textTone": "dark"
+    },
+    {
+      "text": "",
+      "spokenText": "He lifted his paw, and the mouse scampered away. “Thank you! I will never forget!” she called.",
+      "scene": "the lion lifting one big paw up off the ground, smiling gently; the little mouse scampering away happily through the golden grass toward the right, waving one tiny paw back at him over her shoulder. Other characters: the lion, ONE big proud adult male lion with a soft golden-honey coat, a huge fluffy russet-orange mane, kind amber eyes, a pale cream muzzle, a dark brown nose and a dark brown tuft at the tip of his tail",
+      "background": "calm soft golden afternoon sky",
+      "image": "p08.webp",
+      "audio": "p08.mp3",
+      "safe": 0.224,
+      "sky": "#f8cd66",
+      "textTone": "dark"
+    },
+    {
+      "text": "",
+      "spokenText": "Days later, the lion explored by the river and stepped on a hidden rope. Swish! Up went a net!",
+      "scene": "beside a gentle blue river with green reeds, a loose brown rope net swishing up off the grass around the lion, who looks startled with wide eyes, one paw raised; no people anywhere, nobody hurt; gentle, a little silly, not scary; the little mouse is not in this picture. Other characters: the lion, ONE big proud adult male lion with a soft golden-honey coat, a huge fluffy russet-orange mane, kind amber eyes, a pale cream muzzle, a dark brown nose and a dark brown tuft at the tip of his tail",
+      "background": "calm soft blue midday sky",
+      "image": "p09.webp",
+      "audio": "p09.mp3",
+      "safe": 0.458,
+      "sky": "#73abdc",
+      "textTone": "dark"
+    },
+    {
+      "text": "",
+      "spokenText": "The net wrapped around him tight. He pulled and twisted and wiggled, but the ropes held on tighter.",
+      "scene": "the lion lying on the grassy riverbank all wrapped up in a loose brown rope net, pushing at it with his paws, his mane poking through the holes, a worried frown; reeds and river behind; no people anywhere; not scary; the little mouse is not in this picture. Other characters: the lion, ONE big proud adult male lion with a soft golden-honey coat, a huge fluffy russet-orange mane, kind amber eyes, a pale cream muzzle, a dark brown nose and a dark brown tuft at the tip of his tail",
+      "background": "calm soft blue midday sky",
+      "image": "p10.webp",
+      "audio": "p10.mp3",
+      "safe": 0.349,
+      "sky": "#7eb4df",
+      "textTone": "dark"
+    },
+    {
+      "text": "",
+      "spokenText": "The lion gave a worried roar that rolled across the savanna, all the way to a tiny burrow.",
+      "scene": "a wide savanna view: far away on the left, small in the scene, the lion tangled in the brown rope net by the river, roaring; close in the right foreground, the little mouse popping her head out of a tiny round burrow in the ground, ears up, listening. Other characters: the lion, ONE big proud adult male lion with a soft golden-honey coat, a huge fluffy russet-orange mane, kind amber eyes, a pale cream muzzle, a dark brown nose and a dark brown tuft at the tip of his tail",
+      "background": "calm soft blue sky fading to pale gold",
+      "image": "p11.webp",
+      "audio": "p11.mp3",
+      "safe": 0.458,
+      "sky": "#96a9c9",
+      "textTone": "dark"
+    },
+    {
+      "text": "",
+      "spokenText": "“That’s my lion friend!” cried the little mouse, and she ran as fast as her little legs could go.",
+      "scene": "the little mouse running fast through tall golden grass stems, ears back, tail streaming, tiny puffs of dust behind her, a brave determined face; seen low and close to the ground. Other characters: the lion, ONE big proud adult male lion with a soft golden-honey coat, a huge fluffy russet-orange mane, kind amber eyes, a pale cream muzzle, a dark brown nose and a dark brown tuft at the tip of his tail",
+      "background": "calm soft warm sky",
+      "image": "p12.webp",
+      "audio": "p12.mp3",
+      "safe": 0.448,
+      "sky": "#fadf8b",
+      "textTone": "dark"
+    },
+    {
+      "text": "",
+      "spokenText": "“Don’t worry,” she said. “I’m small, but my teeth are sharp!” Nibble, nibble, gnaw, gnaw went the mouse.",
+      "scene": "the little mouse perched on the brown rope net right beside the lion’s big face, gnawing hard on one rope with her tiny front teeth; the lion lying tangled in the net, watching her with hopeful eyes; river reeds behind. Other characters: the lion, ONE big proud adult male lion with a soft golden-honey coat, a huge fluffy russet-orange mane, kind amber eyes, a pale cream muzzle, a dark brown nose and a dark brown tuft at the tip of his tail",
+      "background": "calm soft blue sky",
+      "image": "p13.webp",
+      "audio": "p13.mp3",
+      "safe": 0.281,
+      "sky": "#4e95d8",
+      "textTone": "dark"
+    },
+    {
+      "text": "",
+      "spokenText": "One by one, the strong ropes snapped. Snip! Snap! Soon there was a hole big enough for a lion.",
+      "scene": "the brown rope net with a big round hole chewed open, cut rope ends curling; the lion pushing his head and front paws out through the hole; the little mouse standing proudly on top of the net with her paws on her hips. Other characters: the lion, ONE big proud adult male lion with a soft golden-honey coat, a huge fluffy russet-orange mane, kind amber eyes, a pale cream muzzle, a dark brown nose and a dark brown tuft at the tip of his tail",
+      "background": "calm soft blue sky",
+      "image": "p14.webp",
+      "audio": "p14.mp3",
+      "safe": 0.229,
+      "sky": "#72b4ef",
+      "textTone": "dark"
+    },
+    {
+      "text": "",
+      "spokenText": "The lion wriggled free and stretched. “Little friend, you saved me! I was wrong to laugh at you.”",
+      "scene": "the lion free on the grassy riverbank, the loose net lying on the ground behind him, bowing his big head low to the little mouse with a grateful smile; the little mouse standing in front of his nose, beaming. Other characters: the lion, ONE big proud adult male lion with a soft golden-honey coat, a huge fluffy russet-orange mane, kind amber eyes, a pale cream muzzle, a dark brown nose and a dark brown tuft at the tip of his tail",
+      "background": "calm soft warm late-afternoon sky",
+      "image": "p15.webp",
+      "audio": "p15.mp3",
+      "safe": 0.255,
+      "sky": "#f8df9f",
+      "textTone": "dark"
+    },
+    {
+      "text": "",
+      "spokenText": "“No act of kindness is ever too small,” said the lion. “And little friends can be mighty friends.”",
+      "scene": "the lion lying down in the golden grass with the little mouse sitting on his big front paw; they smile warmly at each other; soft warm late-afternoon light; a few wildflowers. Other characters: the lion, ONE big proud adult male lion with a soft golden-honey coat, a huge fluffy russet-orange mane, kind amber eyes, a pale cream muzzle, a dark brown nose and a dark brown tuft at the tip of his tail",
+      "background": "calm soft warm late-afternoon sky",
+      "image": "p16.webp",
+      "audio": "p16.mp3",
+      "safe": 0.281,
+      "sky": "#f4dab1",
+      "textTone": "dark"
+    },
+    {
+      "text": "",
+      "spokenText": "From that day on, they were best friends. The mouse rode on his mane to watch the orange sunset.",
+      "scene": "the lion walking slowly through the golden grass with the little mouse riding happily on top of his fluffy mane; both watching a big orange setting sun sitting low on the far horizon, flat acacia trees small and dark on the horizon line. Other characters: the lion, ONE big proud adult male lion with a soft golden-honey coat, a huge fluffy russet-orange mane, kind amber eyes, a pale cream muzzle, a dark brown nose and a dark brown tuft at the tip of his tail",
+      "background": "calm smooth sunset sky glowing from apricot orange low down to soft rose-pink and lavender higher up",
+      "image": "p17.webp",
+      "audio": "p17.mp3",
+      "safe": 0.411,
+      "sky": "#cba1aa",
+      "textTone": "dark"
+    },
+    {
+      "text": "",
+      "spokenText": "Under the twinkling stars, the mouse snuggled into his soft mane, and the two friends drifted off to sleep.",
+      "scene": "night: the lion curled up asleep in the soft grass, eyes closed, peaceful smile, and the little mouse curled up asleep in his fluffy mane; fireflies glowing softly in the grass; cozy and calm. Other characters: the lion, ONE big proud adult male lion with a soft golden-honey coat, a huge fluffy russet-orange mane, kind amber eyes, a pale cream muzzle, a dark brown nose and a dark brown tuft at the tip of his tail",
+      "background": "calm deep twilight-blue night sky with tiny soft scattered stars",
+      "image": "p18.webp",
+      "audio": "p18.mp3",
+      "safe": 0.385,
+      "sky": "#113d76",
+      "textTone": "light"
+    }
+  ],
+  "end": {
+    "text": "The end.",
+    "audio": "end.mp3"
+  },
+  "type": "fable",
+  "genre": "fiction",
+  "style": "soft watercolor storybook painting (transparent watercolor washes with soft blooms and gentle bleeding edges, visible cold-press paper texture, delicate loose pencil linework, classic hand-painted picture-book look in a warm savanna palette of golden ochre, honey, soft sage green, dusty rose and twilight blue; not CGI, not gouache, not comic)"
+}

@@ -1,5 +1,18 @@
 [
   {
+    "folder": "2026-11-03-big-red-fire-engine",
+    "title": "Big Red: The True Story of a Fire Engine",
+    "date": "2026-11-03",
+    "summary": "A true look at a day in the life of a fire engine and its crew, from morning checks and drills to the alarm, turnout gear, sirens, the pump and hydrant, putting out a small shed fire safely, washing the truck, dinner together and a cozy night at the station.",
+    "cover": "stories/2026-11-03-big-red-fire-engine/cover.webp",
+    "pages": 18,
+    "url": "stories/2026-11-03-big-red-fire-engine/index.html",
+    "type": "true story",
+    "genre": "non-fiction",
+    "style": "polished 3D animated-movie style (high-quality modern feature-film CGI, soft global illumination, rounded appealing character design with big expressive eyes, rich warm colors, gentle subsurface skin shading, soft cinematic depth of field; not watercolor, not flat graphic, not comic, not photoreal)",
+    "layout": "fullbleed"
+  },
+  {
     "folder": "2026-11-02-lion-and-the-mouse",
     "title": "The Lion and the Mouse",
     "date": "2026-11-02",

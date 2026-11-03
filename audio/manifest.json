@@ -85,6 +85,11 @@
       "seconds": 415.17,
       "sha256": "603ad3ea1680b37a9c6e4d8850b8358defdecd2101535d222aa6e17db7425701"
     },
+    "oracle-of-delphi": {
+      "bytes": 4289752,
+      "seconds": 428.87,
+      "sha256": "633f3ee18fda3d69ccc3ff732a4ab42d0cb41f8fc64652c16435cb2e18fe30a7"
+    },
     "origins-of-buddhism": {
       "bytes": 4804310,
       "seconds": 480.33,

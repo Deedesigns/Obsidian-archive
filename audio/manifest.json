@@ -5,6 +5,11 @@
       "seconds": 442.4,
       "sha256": "454089f5c4d872bc559f5b1987547b03faf03b0736b73321ea1216dae7b0a92c"
     },
+    "aksum": {
+      "bytes": 4249184,
+      "seconds": 424.81,
+      "sha256": "54258201b7eee401cc90f8adf91eb0e7aaa32078623e5a70acfffa6cbf3f3da0"
+    },
     "cahokia": {
       "bytes": 4282537,
       "seconds": 428.15,

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" font-family="Palatino Linotype, Palatino, Georgia, serif">
+<title>Timeline of the Eleusinian Mysteries, about 1500 BCE to 400 CE (approximate dates)</title>
+<rect width="1200" height="520" fill="#0d1424"/><rect x="0.5" y="0.5" width="1199" height="519" fill="none" stroke="#c9a54a55"/>
+<text x="600" y="40" text-anchor="middle" fill="#f1e6c8" font-size="24" letter-spacing="3">THE ELEUSINIAN MYSTERIES · AN APPROXIMATE TIMELINE</text>
+<text x="600" y="64" text-anchor="middle" fill="#8f8a7c" font-size="14" font-style="italic">Dates are rounded; early Mycenaean cult and exact closure details are debated</text>
+<rect x="80.0" y="100" width="218.9" height="22" fill="#c9a54a40" stroke="#e8c46a"/>
+<text x="308.9" y="116" text-anchor="start" fill="#f1e6c8" font-size="14">Mycenaean shrine under later sanctuary (c. 1500–1100 BCE)</text>
+<rect x="490.5" y="140" width="27.4" height="22" fill="#c9a54a40" stroke="#e8c46a"/>
+<text x="527.9" y="156" text-anchor="start" fill="#f1e6c8" font-size="14">earliest Telesterion; Geometric cult building (c. 750 BCE)</text>
+<rect x="572.6" y="180" width="16.4" height="22" fill="#c9a54a40" stroke="#e8c46a"/>
+<text x="599.0" y="196" text-anchor="start" fill="#f1e6c8" font-size="14">Homeric Hymn to Demeter; Panhellenic Mysteries (c. 650–550 BCE)</text>
+<rect x="638.3" y="220" width="6.0" height="22" fill="#c9a54a40" stroke="#e8c46a"/>
+<text x="654.3" y="236" text-anchor="start" fill="#f1e6c8" font-size="14">Persians destroy Peisistratean Telesterion (480 BCE)</text>
+<rect x="654.7" y="260" width="16.4" height="22" fill="#c9a54a40" stroke="#e8c46a"/>
+<text x="681.1" y="276" text-anchor="start" fill="#f1e6c8" font-size="14">Periclean Telesterion (Ictinus); Classical peak (mid-5th c. BCE)</text>
+<rect x="947.6" y="300" width="13.7" height="22" fill="#c9a54a40" stroke="#e8c46a"/>
+<text x="971.3" y="316" text-anchor="start" fill="#f1e6c8" font-size="14">Costoboci raid (170 CE); Marcus Aurelius rebuilds</text>
+<rect x="1009.5" y="340" width="21.9" height="22" fill="#c9a54a40" stroke="#e8c46a"/>
+<text x="1041.4" y="356" text-anchor="start" fill="#f1e6c8" font-size="14">Hadrian, Marcus Aurelius, Julian initiated</text>
+<rect x="1114.5" y="380" width="6.0" height="22" fill="#c9a54a40" stroke="#e8c46a"/>
+<text x="1104.5" y="396" text-anchor="end" fill="#f1e6c8" font-size="14">Theodosius bans cults; Alaric destroys sanctuary (c. 392–396 CE)</text>
+<line x1="80" y1="440" x2="1120" y2="440" stroke="#e8c46a" stroke-width="2"/>
+<line x1="80.0" y1="434" x2="80.0" y2="446" stroke="#e8c46a"/><text x="80.0" y="466" text-anchor="middle" fill="#8f8a7c" font-size="13">1500 BCE</text>
+<line x1="353.7" y1="434" x2="353.7" y2="446" stroke="#e8c46a"/><text x="353.7" y="466" text-anchor="middle" fill="#8f8a7c" font-size="13">1000 BCE</text>
+<line x1="627.4" y1="434" x2="627.4" y2="446" stroke="#e8c46a"/><text x="627.4" y="466" text-anchor="middle" fill="#8f8a7c" font-size="13">500 BCE</text>
+<line x1="901.1" y1="434" x2="901.1" y2="446" stroke="#e8c46a"/><text x="901.1" y="466" text-anchor="middle" fill="#8f8a7c" font-size="13">1 CE</text>
+<line x1="1120.0" y1="434" x2="1120.0" y2="446" stroke="#e8c46a"/><text x="1120.0" y="466" text-anchor="middle" fill="#8f8a7c" font-size="13">400 CE</text>
+<text x="1120" y="500" text-anchor="end" fill="#8f8a7c" font-size="12">Diagram: Obsidian Archive</text>
+</svg>

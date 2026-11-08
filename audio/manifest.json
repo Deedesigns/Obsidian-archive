@@ -140,6 +140,11 @@
       "seconds": 185.97,
       "sha256": "32c3fd49ade45c623bedeb6fc22e230e64eda1549dfeb14b6b2deabec9a5a7f2"
     },
+    "teotihuacan": {
+      "bytes": 4234777,
+      "seconds": 423.36,
+      "sha256": "19f122d36857ae6640b2e14c1791156ded5c1e55dea82962f7510950fcb958f1"
+    },
     "tiwanaku": {
       "bytes": 5379585,
       "seconds": 537.86,

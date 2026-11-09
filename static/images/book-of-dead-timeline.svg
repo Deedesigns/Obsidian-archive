@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="Palatino Linotype, Palatino, Georgia, serif">
+<title>Timeline of the Egyptian Book of the Dead and its forerunners, about 2500 BCE to 1 CE (approximate dates)</title>
+<rect width="1200" height="600" fill="#0d1424"/><rect x="0.5" y="0.5" width="1199" height="599" fill="none" stroke="#c9a54a55"/>
+<text x="600" y="40" text-anchor="middle" fill="#f1e6c8" font-size="24" letter-spacing="3">THE BOOK OF THE DEAD · AN APPROXIMATE TIMELINE</text>
+<text x="600" y="64" text-anchor="middle" fill="#8f8a7c" font-size="14" font-style="italic">Dates are rounded; Egyptian chronology is uncertain by decades in places</text>
+<rect x="142.4" y="100" width="12.5" height="22" fill="#c9a54a40" stroke="#e8c46a"/>
+<text x="164.9" y="116" fill="#f1e6c8" font-size="14">Pyramid Texts carved in the pyramid of Unas (c. 2350 BCE)</text>
+<rect x="225.6" y="140" width="145.6" height="22" fill="#c9a54a40" stroke="#e8c46a"/>
+<text x="381.2" y="156" fill="#f1e6c8" font-size="14">Coffin Texts on officials' coffins (c. 2150–1800 BCE)</text>
+<rect x="433.6" y="180" width="20.8" height="22" fill="#c9a54a40" stroke="#e8c46a"/>
+<text x="464.4" y="196" fill="#f1e6c8" font-size="14">earliest Book of the Dead spells, coffin of Queen Mentuhotep (c. 1650–1600 BCE)</text>
+<rect x="475.2" y="220" width="199.7" height="22" fill="#c9a54a40" stroke="#e8c46a"/>
+<text x="684.9" y="236" fill="#f1e6c8" font-size="14">New Kingdom: papyrus scrolls with painted vignettes (c. 1550–1070 BCE)</text>
+<rect x="504.3" y="260" width="8.3" height="22" fill="#c9a54a40" stroke="#e8c46a"/>
+<text x="522.6" y="276" fill="#f1e6c8" font-size="14">Spell 125, Weighing of the Heart, first attested (c. 1475 BCE)</text>
+<rect x="583.4" y="300" width="16.6" height="22" fill="#c9a54a40" stroke="#e8c46a"/>
+<text x="610.0" y="316" fill="#f1e6c8" font-size="14">Papyri of Hunefer and Ani (c. 1290–1250 BCE)</text>
+<rect x="674.9" y="340" width="153.9" height="22" fill="#c9a54a40" stroke="#e8c46a"/>
+<text x="664.9" y="356" text-anchor="end" fill="#f1e6c8" font-size="14">hieratic copies spread; many owned by women (c. 1070–700 BCE)</text>
+<rect x="828.8" y="380" width="41.6" height="22" fill="#c9a54a40" stroke="#e8c46a"/>
+<text x="818.8" y="396" text-anchor="end" fill="#f1e6c8" font-size="14">Saite recension fixes spell order (c. 700–600 BCE)</text>
+<rect x="981.9" y="420" width="125.6" height="22" fill="#c9a54a40" stroke="#e8c46a"/>
+<text x="971.9" y="436" text-anchor="end" fill="#f1e6c8" font-size="14">Ptolemaic copies, e.g. Waziri Papyrus I (c. 332–30 BCE)</text>
+<rect x="1095.0" y="460" width="24.5" height="22" fill="#c9a54a40" stroke="#e8c46a"/>
+<text x="1085.0" y="476" text-anchor="end" fill="#f1e6c8" font-size="14">last known copies (1st century BCE)</text>
+<line x1="80" y1="520" x2="1120" y2="520" stroke="#e8c46a"/>
+<line x1="80.0" y1="515" x2="80.0" y2="525" stroke="#e8c46a"/><text x="80.0" y="546" text-anchor="middle" fill="#8f8a7c" font-size="14">2500 BCE</text>
+<line x1="288.0" y1="515" x2="288.0" y2="525" stroke="#e8c46a"/><text x="288.0" y="546" text-anchor="middle" fill="#8f8a7c" font-size="14">2000 BCE</text>
+<line x1="496.0" y1="515" x2="496.0" y2="525" stroke="#e8c46a"/><text x="496.0" y="546" text-anchor="middle" fill="#8f8a7c" font-size="14">1500 BCE</text>
+<line x1="704.0" y1="515" x2="704.0" y2="525" stroke="#e8c46a"/><text x="704.0" y="546" text-anchor="middle" fill="#8f8a7c" font-size="14">1000 BCE</text>
+<line x1="912.0" y1="515" x2="912.0" y2="525" stroke="#e8c46a"/><text x="912.0" y="546" text-anchor="middle" fill="#8f8a7c" font-size="14">500 BCE</text>
+<line x1="1120.0" y1="515" x2="1120.0" y2="525" stroke="#e8c46a"/><text x="1120.0" y="546" text-anchor="middle" fill="#8f8a7c" font-size="14">1 CE</text>
+</svg>
